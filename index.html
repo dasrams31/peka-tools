@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peka Tools — Tools open source pilihan Peka</title>
+<meta name="description" content="Kumpulan repo dan skill open source yang pernah tayang di Peka, diringkas Bahasa Indonesia, diverifikasi ke GitHub-nya.">
+<link rel="icon" href="mascot.png">
+<style>
+  :root { --bg: #111111; --panel: #1b1b1b; --panel2: #222222; --line: rgba(255,255,255,.09);
+    --ink: #f5f1e6; --mut: #a39e8f; --dim: #8f8a7d; --yel: #ffd60a; --red: #d63026; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--yel); outline-offset: 2px; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  header { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(17,17,17,.96); z-index: 10; }
+  .head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand img { width: 38px; height: 38px; border-radius: 9px; background: var(--yel); }
+  .brand b { font-size: 22px; letter-spacing: -0.5px; }
+  .brand span { color: var(--yel); }
+  nav { display: flex; gap: 4px; flex-wrap: wrap; }
+  nav a { text-decoration: none; font-size: 14px; font-weight: 600; padding: 10px 14px; border-radius: 999px; color: var(--mut); }
+  nav a:hover { color: var(--ink); }
+  nav a.on { background: var(--yel); color: #111; }
+  .hero { padding: 52px 0 8px 0; }
+  .kicker { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; color: var(--yel); letter-spacing: 1.5px; }
+  h1 { font-size: 52px; line-height: 1.05; letter-spacing: -1.5px; margin-top: 14px; }
+  h1 em { font-style: normal; background: var(--yel); color: #111; padding: 0 12px; }
+  .sub { font-size: 18px; line-height: 1.6; color: var(--mut); margin-top: 16px; max-width: 640px; }
+  .stats { display: flex; gap: 28px; margin: 26px 0 8px 0; flex-wrap: wrap; }
+  .stats b { font-size: 26px; display: block; }
+  .stats span { font-size: 13px; color: var(--mut); }
+  .controls { margin: 28px 0 0 0; }
+  .search { display: flex; gap: 10px; }
+  .search input { flex: 1; background: var(--panel); border: 1px solid var(--line); color: var(--ink); border-radius: 12px; padding: 13px 16px; font-size: 16px; outline: none; }
+  .search input:focus { border-color: var(--yel); }
+  .search kbd { align-self: center; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; color: var(--dim); border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .chip { background: transparent; border: 1px solid var(--line); color: var(--mut); border-radius: 999px; padding: 10px 16px; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .chip:hover { color: var(--ink); }
+  .chip.on { background: var(--yel); border-color: var(--yel); color: #111; }
+  .filters { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  .filters select { background: var(--panel); border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 10px 12px; font-size: 14px; }
+  .count { font-size: 14px; color: var(--dim); margin: 20px 0 4px 0; }
+  .row { display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+  .row:hover .tname { color: var(--yel); }
+  .num { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; color: var(--dim); width: 28px; flex: none; padding-top: 4px; }
+  .tname { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+  .towner { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; color: var(--dim); margin-top: 2px; }
+  .tdesc { font-size: 15px; line-height: 1.6; color: var(--mut); margin-top: 8px; }
+  .meta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; font-size: 13px; color: var(--mut); align-items: center; }
+  .tag { font-size: 12px; font-weight: 700; background: var(--panel2); border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; color: var(--ink); }
+  .tag.y { background: var(--yel); border-color: var(--yel); color: #111; }
+  .bm { margin-left: auto; background: none; border: none; color: var(--dim); font-size: 22px; cursor: pointer; flex: none; padding: 10px; }
+  .bm.saved { color: var(--yel); }
+  .back { background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 11px 16px; font-size: 14px; font-weight: 600; cursor: pointer; margin: 28px 0 0 0; }
+  .back:hover { border-color: var(--yel); }
+  h2 { font-size: 34px; letter-spacing: -0.8px; margin-top: 12px; }
+  .page-sub { color: var(--mut); font-size: 16px; line-height: 1.6; margin-top: 10px; }
+  .statgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+  .statbox { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .statbox b { font-size: 22px; display: block; }
+  .statbox span { font-size: 12px; color: var(--dim); }
+  .btnrow { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+  .btn { display: inline-block; text-decoration: none; font-weight: 700; font-size: 15px; border-radius: 10px; padding: 12px 20px; }
+  .btn.y { background: var(--yel); color: #111; }
+  .btn.o { border: 1px solid var(--line); color: var(--ink); background: transparent; cursor: pointer; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 20px; cursor: pointer; }
+  .card:hover { border-color: var(--yel); }
+  .card h3 { font-size: 19px; letter-spacing: -0.3px; }
+  .card p { color: var(--mut); font-size: 14px; line-height: 1.6; margin-top: 8px; }
+  .card .n { font-size: 13px; color: var(--dim); margin-top: 12px; }
+  .archrow { display: flex; justify-content: space-between; gap: 12px; padding: 18px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+  .archrow:hover b { color: var(--yel); }
+  .archrow .d { color: var(--dim); font-size: 14px; white-space: nowrap; }
+  .heat { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 18px; }
+  .day { width: 22px; height: 22px; border-radius: 6px; background: var(--panel2); border: 1px solid var(--line); font-size: 0; }
+  .day.f { background: var(--yel); border-color: var(--yel); }
+  form label { display: block; font-weight: 700; font-size: 15px; margin-top: 20px; }
+  form input, form textarea { width: 100%; background: var(--panel); border: 1px solid var(--line); color: var(--ink); border-radius: 12px; padding: 13px 16px; font-size: 15px; margin-top: 8px; outline: none; }
+  form input:focus, form textarea:focus { border-color: var(--yel); }
+  form textarea { min-height: 110px; resize: vertical; }
+  .hint { font-size: 13px; color: var(--dim); margin-top: 6px; }
+  .note { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-top: 22px; font-size: 15px; line-height: 1.65; color: var(--mut); }
+  .note b { color: var(--ink); }
+  .empty { text-align: center; padding: 60px 20px; color: var(--mut); }
+  .empty b { color: var(--ink); font-size: 19px; display: block; margin-bottom: 8px; }
+  footer { border-top: 1px solid var(--line); margin-top: 60px; padding: 26px 0 40px 0; color: var(--dim); font-size: 14px; line-height: 1.7; }
+  footer a { color: var(--yel); }
+  .banner { background: var(--panel); border: 1px solid var(--yel); border-radius: 16px; padding: 20px; margin-top: 22px; }
+  .banner h3 { font-size: 21px; }
+  .banner p { color: var(--mut); margin-top: 6px; line-height: 1.6; font-size: 15px; }
+  @media (max-width: 640px) {
+    h1 { font-size: 38px; }
+    .statgrid { grid-template-columns: repeat(2, 1fr); }
+    .cards { grid-template-columns: 1fr; }
+    .search kbd { display: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap head">
+    <a class="brand" href="#/"><img src="mascot.png" alt="Peka"><b>Peka <span>Tools</span></b></a>
+    <nav id="nav">
+      <a href="#/" data-nav="list">Hari ini</a>
+      <a href="#/koleksi" data-nav="koleksi">Koleksi</a>
+      <a href="#/arsip" data-nav="arsip">Arsip</a>
+      <a href="#/disimpan" data-nav="disimpan">Disimpan</a>
+      <a href="#/usulkan" data-nav="usulkan">Usulkan</a>
+      <a href="#/tentang" data-nav="tentang">Tentang</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <section id="view-list">
+    <div class="hero">
+      <div class="kicker">TOOLS OPEN SOURCE PILIHAN PEKA</div>
+      <h1>Repo bagus, <em>tinggal pakai.</em></h1>
+      <p class="sub">Kumpulan repo dan skill yang pernah tayang di Peka, diringkas Bahasa Indonesia dan diverifikasi ke GitHub-nya. Cari nama repo, saring kategori atau bahasa, simpan yang mau dicoba nanti.</p>
+      <div class="stats" id="stats"></div>
+    </div>
+    <div class="controls">
+      <div class="search">
+        <input id="q" type="text" placeholder="Cari nama repo atau kata kunci..." autocomplete="off">
+        <kbd>/</kbd>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="filters">
+        <select id="lang"><option value="">Semua bahasa</option></select>
+        <select id="sort">
+          <option value="stars">Urut: Peringkat</option>
+          <option value="name">Urut: Nama A-Z</option>
+          <option value="new">Urut: Terbaru</option>
+        </select>
+      </div>
+      <div class="count" id="count"></div>
+    </div>
+    <div id="list"><div class="empty"><b>Memuat katalog...</b></div></div>
+  </section>
+  <section id="view-detail" style="display:none"></section>
+  <section id="view-koleksi" style="display:none"></section>
+  <section id="view-arsip" style="display:none"></section>
+  <section id="view-disimpan" style="display:none"></section>
+  <section id="view-usulkan" style="display:none"></section>
+  <section id="view-tentang" style="display:none"></section>
+</main>
+<footer>
+  <div class="wrap">
+    <b style="color:var(--ink)">Peka Tools</b> adalah katalog tools open source dari Peka.<br>
+    Data: repo yang pernah tayang di SPILL Repo Peka, edisi khusus Hallmark, dan tools buatan Peka.
+    Angka bintang dari GitHub saat data disusun (<span id="gen"></span>), bisa berubah, cek repo aslinya.<br>
+    <a href="https://peka.ai.id">peka.ai.id</a> · <a href="https://url.peka.ai.id">url.peka.ai.id</a> · <a href="https://github.com/dasrams31">GitHub Peka</a>
+  </div>
+</footer>
+<script>
+let DATA = null;
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const savedKey = 'peka-tools-saved';
+const getSaved = () => { try { return JSON.parse(localStorage.getItem(savedKey) || '[]'); } catch (e) { return []; } };
+const isSaved = n => getSaved().includes(n);
+function toggleSave(n) {
+  let s = getSaved();
+  s = s.includes(n) ? s.filter(x => x !== n) : [...s, n];
+  localStorage.setItem(savedKey, JSON.stringify(s));
+  route();
+}
+function toolByName(n) { return DATA.tools.find(t => t.name === n); }
+function fmtDate(d) {
+  if (!d) return 'Katalog tetap';
+  const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  const [y, m, day] = d.split('-').map(Number);
+  return day + ' ' + months[m - 1] + ' ' + y;
+}
+function setNav(cur) {
+  document.querySelectorAll('#nav a').forEach(a => a.classList.toggle('on', a.dataset.nav === cur));
+}
+function show(id) {
+  ['list', 'detail', 'koleksi', 'arsip', 'disimpan', 'usulkan', 'tentang'].forEach(v => {
+    $('view-' + v).style.display = (v === id) ? '' : 'none';
+  });
+  window.scrollTo(0, 0);
+}
+function star(t) { return t.stars_display ? '★ ' + t.stars_display : '★ -'; }
+function rowHTML(t, i) {
+  const saved = isSaved(t.name);
+  return '<div class="row" onclick="location.hash=\'#/tool/' + esc(t.name) + '\'">' +
+    '<div class="num">' + String(i + 1).padStart(2, '0') + '</div>' +
+    '<div style="flex:1;min-width:0">' +
+      '<div class="tname">' + esc(t.repo) + '</div>' +
+      '<div class="towner">' + esc(t.name) + '</div>' +
+      '<div class="tdesc">' + esc(t.desc) + '</div>' +
+      '<div class="meta"><span>' + star(t) + '</span>' +
+        (t.language ? '<span>● ' + esc(t.language) + '</span>' : '') +
+        '<span class="tag">' + esc(t.category) + '</span>' +
+        (t.edition_label ? '<span>' + esc(t.edition_label) + '</span>' : '') +
+      '</div>' +
+    '</div>' +
+    '<button class="bm' + (saved ? ' saved' : '') + '" title="Simpan" onclick="event.stopPropagation();toggleSave(\'' + esc(t.name) + '\')">' + (saved ? '★' : '☆') + '</button>' +
+  '</div>';
+}
+function applyFilters(list) {
+  const q = ($('q').value || '').toLowerCase().trim();
+  const cat = state.category, lang = $('lang').value, sort = $('sort').value;
+  let out = list.filter(t => {
+    if (cat && t.category !== cat) return false;
+    if (lang && t.language !== lang) return false;
+    if (q && !(t.name + ' ' + t.desc + ' ' + t.cocok).toLowerCase().includes(q)) return false;
+    return true;
+  });
+  if (sort === 'stars') out.sort((a, b) => (b.stars ?? -1) - (a.stars ?? -1));
+  if (sort === 'name') out.sort((a, b) => a.repo.localeCompare(b.repo));
+  if (sort === 'new') out.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  return out;
+}
+function renderList() {
+  const list = applyFilters(DATA.tools);
+  $('count').textContent = 'Menampilkan ' + list.length + ' dari ' + DATA.tools.length + ' tools.';
+  $('list').innerHTML = list.length ? list.map(rowHTML).join('') :
+    '<div class="empty"><b>Tidak ketemu.</b>Coba kata kunci lain atau ubah filternya.</div>';
+}
+function renderChips() {
+  const cats = ['Semua'].concat(DATA.categories);
+  $('chips').innerHTML = cats.map(c => {
+    const on = (c === 'Semua' && !state.category) || state.category === c;
+    return '<button class="chip' + (on ? ' on' : '') + '" onclick="setCategory(\'' + esc(c) + '\')">' + esc(c) + '</button>';
+  }).join('');
+}
+function setCategory(c) { state.category = (c === 'Semua') ? '' : c; renderChips(); renderList(); }
+function renderDetail(name) {
+  const t = toolByName(name);
+  const el = $('view-detail');
+  if (!t) { el.innerHTML = '<button class="back" onclick="location.hash=\'#/\'">← Kembali</button><div class="empty"><b>Repo tidak ditemukan.</b>Mungkin belum masuk katalog.</div>'; show('detail'); return; }
+  const saved = isSaved(t.name);
+  const blog = t.blog ? '<a class="btn o" href="https://blog.peka.ai.id/p/' + esc(t.blog) + '">Baca bedah lengkap di blog Peka</a>' : '';
+  el.innerHTML = '<button class="back" onclick="location.hash=\'#/\'">← Kembali ke daftar</button>' +
+    '<h2>' + esc(t.repo) + '</h2>' +
+    '<div class="towner">' + esc(t.name) + (t.edition_label ? ' · ' + esc(t.edition_label) : '') + (t.date ? ' · ' + esc(fmtDate(t.date)) : '') + '</div>' +
+    '<p class="page-sub">' + esc(t.desc) + '</p>' +
+    '<p class="page-sub"><b style="color:var(--ink)">Cocok buat:</b> ' + esc(t.cocok) + '</p>' +
+    '<div class="statgrid">' +
+      '<div class="statbox"><b>' + (t.stars_display || '-') + '</b><span>Bintang</span></div>' +
+      '<div class="statbox"><b>' + (t.forks ?? '-') + '</b><span>Fork</span></div>' +
+      '<div class="statbox"><b>' + esc(t.language || '-') + '</b><span>Bahasa utama</span></div>' +
+      '<div class="statbox"><b>' + esc(t.license || '-') + '</b><span>Lisensi</span></div>' +
+    '</div>' +
+    '<div class="meta" style="margin-top:18px">' + t.tags.map(x => '<span class="tag">' + esc(x) + '</span>').join('') + '</div>' +
+    '<div class="btnrow">' +
+      '<a class="btn y" href="' + esc(t.url) + '">Buka di GitHub</a>' +
+      '<button class="btn o" onclick="shareTool(\'' + esc(t.name) + '\')">Bagikan</button>' +
+      '<button class="btn o" onclick="toggleSave(\'' + esc(t.name) + '\')">' + (saved ? '★ Tersimpan' : '☆ Simpan') + '</button>' +
+      blog +
+    '</div>' +
+    '<div class="note"><b>Catatan:</b> mau dipakai? Tetap baca dokumentasi dan lisensi di repo aslinya. ' +
+    'Angka di halaman ini dari GitHub saat data disusun, bisa berubah.</div>';
+  show('detail');
+}
+function shareTool(name) {
+  const url = location.origin + location.pathname + '#/tool/' + name;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => alert('Link tersalin: ' + url));
+  } else { prompt('Salin link ini:', url); }
+}
+function renderKoleksi() {
+  const el = $('view-koleksi');
+  el.innerHTML = '<h2>Koleksi pilihan editor</h2>' +
+    '<p class="page-sub">Daftar bertema dari arsip katalog: bukan kategori teknis, tapi jawaban atas kebutuhan nyata. Tiap koleksi lintas kategori.</p>' +
+    '<div class="cards">' + DATA.collections.map(c => {
+      const n = c.members.filter(m => toolByName(m)).length;
+      return '<div class="card" onclick="location.hash=\'#/koleksi/' + esc(c.id) + '\'"><h3>' + esc(c.title) + '</h3><p>' + esc(c.desc) + '</p><div class="n">' + n + ' tools pilihan</div></div>';
+    }).join('') + '</div>';
+  show('koleksi');
+}
+function renderKoleksiDetail(id) {
+  const c = DATA.collections.find(x => x.id === id);
+  const el = $('view-koleksi');
+  if (!c) { renderKoleksi(); return; }
+  const members = c.members.map(toolByName).filter(Boolean);
+  el.innerHTML = '<button class="back" onclick="location.hash=\'#/koleksi\'">← Semua koleksi</button>' +
+    '<h2>' + esc(c.title) + '</h2><p class="page-sub">' + esc(c.desc) + '</p>' +
+    '<div class="count">' + members.length + ' tools.</div>' +
+    members.map((t, i) => {
+      const saved = isSaved(t.name);
+      return '<div class="row" onclick="location.hash=\'#/tool/' + esc(t.name) + '\'">' +
+        '<div class="num">' + String(i + 1).padStart(2, '0') + '</div>' +
+        '<div style="flex:1;min-width:0"><div class="tname">' + esc(t.repo) + '</div>' +
+        '<div class="towner">' + esc(t.name) + '</div>' +
+        '<div class="tdesc"><b style="color:var(--ink)">Kenapa masuk:</b> ' + esc(t.cocok) + '</div>' +
+        '<div class="meta"><span>' + star(t) + '</span><span class="tag">' + esc(t.category) + '</span></div></div>' +
+        '<button class="bm' + (saved ? ' saved' : '') + '" onclick="event.stopPropagation();toggleSave(\'' + esc(t.name) + '\')">' + (saved ? '★' : '☆') + '</button></div>';
+    }).join('');
+  show('koleksi');
+}
+function renderArsip() {
+  const el = $('view-arsip');
+  const counts = {};
+  DATA.archive.forEach(a => { counts[a.date] = (counts[a.date] || 0) + a.count; });
+  let heat = '';
+  for (let d = 1; d <= 31; d++) {
+    const key = '2026-10-' + String(d).padStart(2, '0');
+    heat += '<div class="day' + (counts[key] ? ' f' : '') + '" title="' + key + (counts[key] ? ': ' + counts[key] + ' tools' : '') + '"></div>';
+  }
+  el.innerHTML = '<h2>Arsip edisi</h2>' +
+    '<p class="page-sub">Setiap edisi yang pernah diterbitkan, dari yang terbaru sampai yang paling lama. Pilih tanggalnya buat lihat daftar repo di edisi itu.</p>' +
+    '<div class="heat">' + heat + '</div>' +
+    '<div class="hint">Oktober 2026 · kotak kuning = ada edisi terbit.</div>' +
+    '<div style="margin-top:14px">' + DATA.archive.map(a => {
+      const tools = DATA.tools.filter(t => t.edition_label && t.date === a.date && (a.edition ? t.edition === a.edition : !t.edition));
+      const q = a.edition ? '' : '';
+      return '<div class="archrow" onclick="filterByDate(\'' + a.date + '\',' + (a.edition === null ? 'null' : a.edition) + ')"><div><b>' + esc(a.label) + '</b><div class="hint">' + esc(fmtDate(a.date)) + '</div></div><div class="d">' + a.count + ' tools</div></div>';
+    }).join('') + '</div>';
+  show('arsip');
+}
+function filterByDate(date, edition) {
+  state.category = ''; state.dateFilter = { date, edition };
+  $('q').value = '';
+  renderChips();
+  const list = DATA.tools.filter(t => t.date === date && (edition === null ? !t.edition : t.edition === edition));
+  $('count').textContent = 'Edisi ' + fmtDate(date) + ': ' + list.length + ' tools.';
+  $('list').innerHTML = list.map(rowHTML).join('');
+  show('list'); setNav('list');
+}
+function renderDisimpan() {
+  const el = $('view-disimpan');
+  const list = getSaved().map(toolByName).filter(Boolean);
+  el.innerHTML = '<h2>Disimpan</h2>' +
+    '<p class="page-sub">Tools yang kamu bookmark. Tersimpan di browser ini, tidak perlu akun. Bookmark cuma ada di browser yang kamu pakai, tidak otomatis ikut ke HP lain.</p>' +
+    (list.length ? '<div style="margin-top:14px">' + list.map(rowHTML).join('') + '</div>'
+    : '<div class="empty"><b>Belum ada yang disimpan.</b>Pencet ikon bookmark di tiap tools buat nyimpan ke daftar ini.<br><br><a class="btn y" href="#/">Jelajahi edisi hari ini</a></div>');
+  show('disimpan');
+}
+function renderUsulkan() {
+  const el = $('view-usulkan');
+  el.innerHTML = '<h2>Punya repo sendiri? Usulin aja.</h2>' +
+    '<p class="page-sub">Nemu repo open source yang keren dan belum ada di sini? Usulin, nanti direview manual. Yang lolos bakal masuk edisi harian. Submit bukan jaminan tampil.</p>' +
+    '<form id="f-usul" onsubmit="return submitUsulan(event)">' +
+      '<label>Link repo GitHub</label>' +
+      '<input id="u-repo" type="url" placeholder="https://github.com/owner/repo" required>' +
+      '<label>Kenapa repo ini layak dikurasi?</label>' +
+      '<textarea id="u-reason" placeholder="Ceritain apa yang bikin repo ini menarik atau berguna. Minimal 20 karakter." required></textarea>' +
+      '<label>Nama lo (opsional)</label>' +
+      '<input id="u-name" type="text" placeholder="Bakal ditampilin sebagai pengusul kalo lolos">' +
+      '<div style="margin-top:22px"><button class="btn y" type="submit" style="border:none;cursor:pointer">Kirim usulan</button></div>' +
+      '<div class="hint">Usulan direview manual tiap hari. Yang lolos standar kurasi baru masuk edisi harian.</div>' +
+      '<div id="u-msg" style="margin-top:14px;font-size:15px"></div>' +
+    '</form>';
+  show('usulkan');
+}
+async function submitUsulan(ev) {
+  ev.preventDefault();
+  const repo = $('u-repo').value.trim(), reason = $('u-reason').value.trim(), name = $('u-name').value.trim();
+  const msg = $('u-msg');
+  if (!/^https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/?$/.test(repo)) { msg.style.color = '#ff7a6e'; msg.textContent = 'Link harus format https://github.com/owner/repo.'; return false; }
+  if (reason.length < 20) { msg.style.color = '#ff7a6e'; msg.textContent = 'Alasannya minimal 20 karakter.'; return false; }
+  msg.style.color = 'var(--mut)'; msg.textContent = 'Mengirim...';
+  try {
+    const r = await fetch('/api/usulan', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ repo, reason, name }) });
+    const j = await r.json();
+    if (j.ok) { msg.style.color = 'var(--yel)'; msg.textContent = 'Usulan terkirim. Makasih, bakal direview manual dulu.'; $('f-usul').reset(); }
+    else { msg.style.color = '#ff7a6e'; msg.textContent = 'Gagal: ' + (j.error || 'coba lagi nanti.'); }
+  } catch (e) { msg.style.color = '#ff7a6e'; msg.textContent = 'Gagal mengirim, cek koneksi lalu coba lagi.'; }
+  return false;
+}
+function renderTentang() {
+  const el = $('view-tentang');
+  el.innerHTML = '<h2>Tentang Peka Tools</h2>' +
+    '<p class="page-sub">Katalog tools open source yang sedang naik daun dan berguna buat kerjaan sehari-hari, dikurasi dari postingan Peka, diringkas manual dalam Bahasa Indonesia.</p>' +
+    '<div class="note"><b>Cara kami mengkurasi.</b><br>' +
+    '• Setiap repo diverifikasi langsung ke repositori GitHub-nya.<br>' +
+    '• Setiap edisi arsip punya tanggal terbit yang bisa dicek.<br>' +
+    '• Ringkasan ditulis dari deskripsi repo dan bedah Peka, dalam Bahasa Indonesia, tanpa klaim yang tidak bisa dibuktikan.<br>' +
+    '• Angka yang tidak kami punya datanya kami tulis kosong, bukan kami karang.</div>' +
+    '<div class="note"><b>Sumber data.</b> Repo yang pernah tayang di SPILL Repo Peka (edisi #01 sampai #05), edisi khusus Hallmark, dan tools open source buatan Peka. Edisi baru masuk katalog setelah tayang di Peka.</div>' +
+    '<div class="note"><b>Standar yang ditulis di situs ini:</b> cek repo langsung dan pakai bukti bertanggal. Mau dipakai? Tetap baca dokumentasi dan lisensi di repo aslinya.</div>';
+  show('tentang');
+}
+const state = { category: '', dateFilter: null };
+function route() {
+  const h = location.hash.replace(/^#\/?/, '');
+  const slash = h.indexOf('/');
+  const page = slash === -1 ? h : h.slice(0, slash);
+  const arg = slash === -1 ? '' : h.slice(slash + 1);
+  if (page === 'tool' && arg) { setNav('list'); renderDetail(decodeURIComponent(arg)); return; }
+  if (page === 'koleksi' && arg) { setNav('koleksi'); renderKoleksiDetail(arg); return; }
+  if (page === 'koleksi') { setNav('koleksi'); renderKoleksi(); return; }
+  if (page === 'arsip') { setNav('arsip'); renderArsip(); return; }
+  if (page === 'disimpan') { setNav('disimpan'); renderDisimpan(); return; }
+  if (page === 'usulkan') { setNav('usulkan'); renderUsulkan(); return; }
+  if (page === 'tentang') { setNav('tentang'); renderTentang(); return; }
+  setNav('list'); show('list'); renderList();
+}
+async function init() {
+  try {
+    const r = await fetch('tools.json');
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    DATA = await r.json();
+  } catch (e) {
+    $('list').innerHTML = '<div class="empty"><b>Katalog gagal dimuat.</b>Periksa koneksi lalu muat ulang halaman ini.</div>';
+    return;
+  }
+  $('gen').textContent = DATA.generated;
+  const langs = [...new Set(DATA.tools.map(t => t.language).filter(Boolean))].sort();
+  langs.forEach(l => {
+    const o = document.createElement('option'); o.value = l; o.textContent = l; $('lang').appendChild(o);
+  });
+  const nCat = new Set(DATA.tools.map(t => t.category)).size;
+  const nEd = new Set(DATA.tools.map(t => t.edition_label).filter(Boolean)).size;
+  $('stats').innerHTML =
+    '<div><b>' + DATA.tools.length + '</b><span>tools</span></div>' +
+    '<div><b>' + nCat + '</b><span>kategori</span></div>' +
+    '<div><b>' + nEd + '</b><span>edisi</span></div>' +
+    '<div><b>' + langs.length + '</b><span>bahasa</span></div>';
+  renderChips();
+  $('q').addEventListener('input', renderList);
+  $('lang').addEventListener('change', renderList);
+  $('sort').addEventListener('change', renderList);
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+      e.preventDefault(); $('q').focus();
+    }
+  });
+  window.addEventListener('hashchange', route);
+  route();
+}
+init();
+</script>
+</body>
+</html>
