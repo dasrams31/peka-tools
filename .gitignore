@@ -2,3 +2,4 @@ data/
 preview/
 *.bak
 *.log
+.env

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Peka Tools</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="mascot.png">
+<style>
+  :root { --bg: #111111; --panel: #1b1b1b; --panel2: #222222; --line: rgba(255,255,255,.09);
+    --ink: #f5f1e6; --mut: #a39e8f; --dim: #8f8a7d; --yel: #ffd60a; --red: #d63026;
+    --err: #ff7a6e; --ok: #34d399;
+    --font-body: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { overflow-x: clip; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font-body); }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--yel); outline-offset: 2px; }
+  button:active, a:active { opacity: .75; }
+  .mono { font-family: var(--font-mono); }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  header { border-bottom: 1px solid var(--line); }
+  .head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand img { width: 38px; height: 38px; border-radius: 9px; background: var(--yel); }
+  .brand b { font-size: 22px; letter-spacing: -0.5px; }
+  .brand span { color: var(--yel); }
+  h1 { font-size: clamp(1.75rem, 2.5vw + 1rem, 2.125rem); letter-spacing: -0.8px; margin-top: 28px; }
+  .sub { color: var(--mut); font-size: 16px; line-height: 1.6; margin-top: 10px; }
+  h2 { font-size: 21px; letter-spacing: -0.3px; margin: 34px 0 4px 0; }
+  .stats { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+  .statbox { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; }
+  .statbox b { font-size: 22px; display: block; font-variant-numeric: tabular-nums; }
+  .statbox span { font-size: 12px; color: var(--dim); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-top: 14px; }
+  .card .repo { font-weight: 700; font-size: 17px; word-break: break-all; }
+  .card .repo a { color: var(--yel); text-decoration: none; }
+  .card p { color: var(--mut); font-size: 14px; line-height: 1.6; margin-top: 8px; }
+  .card .meta { color: var(--dim); font-size: 13px; margin-top: 8px; }
+  form label { display: block; font-weight: 700; font-size: 14px; margin-top: 16px; }
+  form input, form textarea, form select { width: 100%; background: var(--panel2); border: 1px solid var(--line); color: var(--ink); border-radius: 12px; padding: 12px 14px; font-size: 15px; margin-top: 8px; outline: none; }
+  form input:focus, form textarea:focus, form select:focus { outline: 2px solid var(--yel); outline-offset: 2px; }
+  form textarea { min-height: 80px; resize: vertical; }
+  .btn { display: inline-block; font-weight: 700; font-size: 15px; border-radius: 10px; padding: 12px 20px; cursor: pointer; border: none; }
+  .btn.y { background: var(--yel); color: #111111; }
+  .btn.o { border: 1px solid var(--line); color: var(--ink); background: transparent; }
+  .btn.d { background: transparent; border: 1px solid var(--red); color: var(--err); }
+  .btnrow { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .msg-err { color: var(--err); }
+  .msg-ok { color: var(--ok); }
+  .msg-dim { color: var(--mut); }
+  .empty { padding: 30px 0; color: var(--mut); font-size: 15px; }
+  .hint { font-size: 13px; color: var(--dim); margin-top: 6px; line-height: 1.6; }
+  footer { border-top: 1px solid var(--line); margin-top: 60px; padding: 26px 0 40px 0; color: var(--dim); font-size: 14px; line-height: 1.7; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap head">
+    <a class="brand" href="/"><img src="mascot.png" alt="Peka"><b>Peka <span>Tools</span></b></a>
+    <button class="btn o" id="btn-logout" style="display:none" onclick="logout()">Keluar</button>
+  </div>
+</header>
+<main class="wrap">
+  <section id="view-login">
+    <h1>Admin Peka Tools</h1>
+    <p class="sub">Login untuk mereview usulan repo. Akun yang dipakai sama dengan admin store Peka.</p>
+    <form id="f-login" onsubmit="return doLogin(event)">
+      <label>Email</label>
+      <input id="l-email" type="email" placeholder="admin@peka.ai.id" required autocomplete="username">
+      <label>Password</label>
+      <input id="l-pass" type="password" placeholder="Password admin" required autocomplete="current-password">
+      <div class="btnrow"><button class="btn y" type="submit">Masuk</button></div>
+      <div id="l-msg" style="margin-top:14px;font-size:15px"></div>
+    </form>
+  </section>
+  <section id="view-dash" style="display:none">
+    <h1>Review usulan</h1>
+    <p class="sub">Setujui usulan yang lolos standar kurasi (repo asli terverifikasi, ringkasan jujur). Yang disetujui langsung masuk katalog. Yang ditolak tidak tampil di mana pun.</p>
+    <div class="stats" id="stats"></div>
+    <h2>Menunggu review</h2>
+    <div id="pending"></div>
+    <h2>Disetujui</h2>
+    <div id="approved"></div>
+    <h2>Ditolak</h2>
+    <div id="rejected"></div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">Halaman admin Peka Tools. Tidak diindeks mesin pencari dan tidak ditautkan dari halaman publik.</div>
+</footer>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let CATS = [];
+function fmtTs(ts) {
+  if (!ts) return '';
+  const d = new Date(ts * 1000);
+  const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  return d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear() + ', ' +
+    String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
+}
+async function api(path, opts) {
+  const r = await fetch(path, opts);
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.error || ('HTTP ' + r.status));
+  return j;
+}
+async function doLogin(ev) {
+  ev.preventDefault();
+  const msg = $('l-msg');
+  msg.className = 'msg-dim'; msg.textContent = 'Memeriksa…';
+  try {
+    await api('/api/admin/login', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: $('l-email').value.trim(), password: $('l-pass').value }) });
+    $('f-login').reset();
+    await loadDash();
+  } catch (e) { msg.className = 'msg-err'; msg.textContent = 'Gagal masuk: ' + e.message; }
+  return false;
+}
+async function logout() {
+  try { await api('/api/admin/logout', { method: 'POST' }); } catch (e) {}
+  $('view-dash').style.display = 'none';
+  $('view-login').style.display = '';
+  $('btn-logout').style.display = 'none';
+}
+async function loadDash() {
+  try { await api('/api/admin/me'); } catch (e) { return; }
+  $('view-login').style.display = 'none';
+  $('view-dash').style.display = '';
+  $('btn-logout').style.display = '';
+  try {
+    const d = await (await fetch('tools.json')).json();
+    CATS = d.categories || [];
+  } catch (e) { CATS = []; }
+  await refresh();
+}
+async function refresh() {
+  let items = [];
+  try { items = (await api('/api/admin/usulan')).items || []; }
+  catch (e) {
+    $('pending').innerHTML = '<div class="empty">Gagal memuat usulan: ' + esc(e.message) + '</div>';
+    return;
+  }
+  const p = items.filter(x => (x.status || 'pending') === 'pending');
+  const a = items.filter(x => x.status === 'approved');
+  const r = items.filter(x => x.status === 'rejected');
+  $('stats').innerHTML =
+    '<div class="statbox"><b>' + p.length + '</b><span>menunggu</span></div>' +
+    '<div class="statbox"><b>' + a.length + '</b><span>disetujui</span></div>' +
+    '<div class="statbox"><b>' + r.length + '</b><span>ditolak</span></div>';
+  $('pending').innerHTML = p.length ? p.map(cardPending).join('') :
+    '<div class="empty">Belum ada usulan menunggu review.</div>';
+  $('approved').innerHTML = a.length ? a.map(x =>
+    '<div class="card"><div class="repo"><a href="' + esc(x.repo) + '">' + esc(x.repo) + '</a></div>' +
+    '<p>Masuk katalog sebagai <b style="color:var(--ink)">' + esc(x.tool || '') + '</b></p>' +
+    '<div class="meta">' + esc(fmtTs(x.ts)) + (x.name ? ' oleh ' + esc(x.name) : '') + '</div></div>').join('') :
+    '<div class="empty">Belum ada yang disetujui.</div>';
+  $('rejected').innerHTML = r.length ? r.map(x =>
+    '<div class="card"><div class="repo"><a href="' + esc(x.repo) + '">' + esc(x.repo) + '</a></div>' +
+    '<div class="meta">' + esc(fmtTs(x.ts)) + (x.name ? ' oleh ' + esc(x.name) : '') + '</div></div>').join('') :
+    '<div class="empty">Belum ada yang ditolak.</div>';
+}
+function cardPending(x) {
+  const opts = CATS.map(c => '<option value="' + esc(c) + '">' + esc(c) + '</option>').join('');
+  return '<div class="card" id="card-' + x.id + '">' +
+    '<div class="repo"><a href="' + esc(x.repo) + '">' + esc(x.repo) + '</a></div>' +
+    '<p>' + esc(x.reason) + '</p>' +
+    '<div class="meta">' + esc(fmtTs(x.ts)) + (x.name ? ' oleh ' + esc(x.name) : '') + '</div>' +
+    '<div id="meta-' + x.id + '" class="hint"></div>' +
+    '<form onsubmit="return false">' +
+      '<label>Kategori</label>' +
+      '<select id="cat-' + x.id + '"><option value="">Pilih kategori…</option>' + opts + '</select>' +
+      '<label>Ringkasan (Bahasa Indonesia, jujur, tanpa klaim tak terbukti)</label>' +
+      '<textarea id="desc-' + x.id + '" placeholder="Kosongkan untuk memakai deskripsi GitHub repo."></textarea>' +
+      '<label>Cocok buat</label>' +
+      '<textarea id="cocok-' + x.id + '" placeholder="Kosongkan untuk memakai alasan pengusul (maksimal 300 karakter)."></textarea>' +
+      '<div class="btnrow">' +
+        '<button class="btn o" type="button" onclick="loadRepo(' + x.id + ', \'' + esc(x.repo) + '\')">Muat data GitHub</button>' +
+        '<button class="btn y" type="button" onclick="approve(' + x.id + ')">Setujui</button>' +
+        '<button class="btn d" type="button" onclick="reject(' + x.id + ')">Tolak</button>' +
+      '</div>' +
+      '<div id="msg-' + x.id + '" style="margin-top:12px;font-size:14px"></div>' +
+    '</form>' +
+  '</div>';
+}
+async function loadRepo(id, repo) {
+  const meta = $('meta-' + id), msg = $('msg-' + id);
+  meta.textContent = 'Memuat data GitHub…';
+  try {
+    const j = await api('/api/admin/repo-info?repo=' + encodeURIComponent(repo));
+    meta.textContent = '★ ' + (j.stars_display || j.stars) + ' · Fork ' + j.forks + ' · ' + (j.language || '-') + ' · ' + (j.license || '-');
+    if (!$('desc-' + id).value.trim() && j.description) $('desc-' + id).value = j.description;
+    msg.className = 'msg-ok'; msg.textContent = 'Data GitHub dimuat: ' + j.full_name;
+  } catch (e) { meta.textContent = ''; msg.className = 'msg-err'; msg.textContent = 'Gagal memuat: ' + e.message; }
+}
+async function approve(id) {
+  const msg = $('msg-' + id);
+  const cat = $('cat-' + id).value;
+  if (!cat) { msg.className = 'msg-err'; msg.textContent = 'Pilih kategori dulu.'; return; }
+  msg.className = 'msg-dim'; msg.textContent = 'Menyetujui…';
+  try {
+    const j = await api('/api/admin/approve', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, category: cat, desc: $('desc-' + id).value, cocok: $('cocok-' + id).value }) });
+    msg.className = 'msg-ok'; msg.textContent = 'Masuk katalog sebagai ' + j.tool + '.';
+    setTimeout(refresh, 600);
+  } catch (e) { msg.className = 'msg-err'; msg.textContent = 'Gagal: ' + e.message; }
+}
+async function reject(id) {
+  const msg = $('msg-' + id);
+  if (!confirm('Tolak usulan ini?')) return;
+  msg.className = 'msg-dim'; msg.textContent = 'Menolak…';
+  try {
+    await api('/api/admin/reject', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) });
+    msg.className = 'msg-ok'; msg.textContent = 'Usulan ditolak.';
+    setTimeout(refresh, 600);
+  } catch (e) { msg.className = 'msg-err'; msg.textContent = 'Gagal: ' + e.message; }
+}
+loadDash();
+</script>
+</body>
+</html>

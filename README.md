@@ -1,8 +1,10 @@
 # Peka Tools — tools.peka.ai.id
 
 Katalog tools open source pilihan Peka: repo dan skill yang pernah tayang
-di SPILL Repo Peka, edisi khusus Hallmark, dan tools open source buatan
-Peka sendiri. Desain: layout direktori ala appverse.id, warna ala Peka
+di SPILL Repo Peka, edisi khusus Hallmark, tools open source buatan
+Peka sendiri, kurasi ekosistem agen AI (Claude, Hermes, OpenCode,
+OpenClaw, Codex), dan usulan pengguna yang lolos review admin.
+Desain: layout direktori ala appverse.id, warna ala Peka
 (hitam #111, kuning #ffd60a).
 
 ## Desain
@@ -26,8 +28,25 @@ dari data (bukan klaim).
   (`generated`).
 - `serve.py` — server statis stdlib (127.0.0.1:8094) + endpoint
   `POST /api/usulan` (validasi + rate limit 5/jam/IP, simpan ke
-  `data/usulan.json`, write-only, tidak pernah disajikan publik).
+  `data/usulan.json`, write-only, tidak pernah disajikan publik)
+  + API admin (`/api/admin/*`, wajib login).
+- `admin.html` — halaman admin (tidak ditautkan dari halaman publik,
+  tidak diindeks mesin pencari). Login pakai akun admin yang sama
+  dengan store Peka (`ADMIN_EMAIL` + `ADMIN_PASSWORD_SHA256` di `.env`,
+  gitignored, chmod 600). Fitur: daftar usulan menunggu review,
+  tombol muat data GitHub, setujui (cek duplikat, ambil data GitHub,
+  tambah ke `tools.json` + kategori bila baru), tolak, daftar
+  disetujui/ditolak, logout. Sesi cookie httpOnly 12 jam, throttle
+  login 5x salah/IP/15 menit.
 - `mascot.png` — maskot P.
+
+## Data saat ini (26 Okt 2026)
+
+86 tools, 8 kategori (Claude 23, OpenCode 17, OpenClaw 14, Hermes 13,
+Codex 11, Antigravity 5, Buatan Peka 2, Desain 1). 58 entri kurasi
+ekosistem agen AI ditambah 26 Okt 2026 (semua terverifikasi ke GitHub
+API saat itu, `origin: KURASI`); entri usulan yang disetujui admin
+memakai `origin: USULAN`.
 
 ## Infra
 
