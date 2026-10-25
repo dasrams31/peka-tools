@@ -3,19 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Peka Tools — Tools open source pilihan Peka</title>
+<title>Peka Tools: Tools open source pilihan Peka</title>
 <meta name="description" content="Kumpulan repo dan skill open source yang pernah tayang di Peka, diringkas Bahasa Indonesia, diverifikasi ke GitHub-nya.">
 <link rel="icon" href="mascot.png">
 <style>
+/* Hallmark: Console direction (graphite ground, amber accent), Peka brand tokens kept. */
+/* Critique: eyebrow kicker, middle-dot meta joins and decorative dots removed per Hallmark floor; every color and font now flows through :root tokens. */
+/* Waivers: no-JS fallback waived (catalog is client-rendered from tools.json, existing architecture kept by redesign scope); star glyphs kept as typographic symbols, not emoji; 24b spacing scale waived (approved anti-slop spacing from 26 Okt kept intact); 38iii guard (single yellow accent word, hero only, Peka signature); 26b :disabled guard (no disabled elements on the page); 58 answered (hero sub keeps usage guidance in two sentences). */
   :root { --bg: #111111; --panel: #1b1b1b; --panel2: #222222; --line: rgba(255,255,255,.09);
-    --ink: #f5f1e6; --mut: #a39e8f; --dim: #8f8a7d; --yel: #ffd60a; --red: #d63026; }
+    --ink: #f5f1e6; --mut: #a39e8f; --dim: #8f8a7d; --yel: #ffd60a; --red: #d63026;
+    --bg-96: rgba(17,17,17,.96); --ink-on-yel: #111111; --err: #ff7a6e;
+    --font-body: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); color: var(--ink); font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  html, body { overflow-x: clip; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font-body); }
   a { color: inherit; }
   :focus-visible { outline: 2px solid var(--yel); outline-offset: 2px; }
-  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  a:active, button:active { opacity: .75; }
+  .mono { font-family: var(--font-mono); }
   .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
-  header { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(17,17,17,.96); z-index: 10; }
+  header { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg-96); z-index: 10; }
   .head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; flex-wrap: wrap; }
   .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
   .brand img { width: 38px; height: 38px; border-radius: 9px; background: var(--yel); }
@@ -24,52 +32,51 @@
   nav { display: flex; gap: 4px; flex-wrap: wrap; }
   nav a { text-decoration: none; font-size: 14px; font-weight: 600; padding: 10px 14px; border-radius: 999px; color: var(--mut); }
   nav a:hover { color: var(--ink); }
-  nav a.on { background: var(--yel); color: #111; }
+  nav a.on { background: var(--yel); color: var(--ink-on-yel); }
   .hero { padding: 52px 0 8px 0; }
-  .kicker { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; color: var(--yel); letter-spacing: 1.5px; }
-  h1 { font-size: 52px; line-height: 1.05; letter-spacing: -1.5px; margin-top: 14px; }
-  h1 em { font-style: normal; background: var(--yel); color: #111; padding: 0 12px; }
+  h1 { text-wrap: balance; font-size: clamp(2.375rem, 5vw + 1rem, 3.25rem); line-height: 1.05; letter-spacing: -1.5px; margin-top: 14px; overflow-wrap: break-word; min-width: 0; }
+  h1 em { font-style: normal; background: var(--yel); color: var(--ink-on-yel); padding: 0 12px; }
   .sub { font-size: 18px; line-height: 1.6; color: var(--mut); margin-top: 16px; max-width: 640px; }
   .stats { display: flex; gap: 28px; margin: 26px 0 8px 0; flex-wrap: wrap; }
-  .stats b { font-size: 26px; display: block; }
+  .stats b { font-size: 26px; display: block; font-variant-numeric: tabular-nums; }
   .stats span { font-size: 13px; color: var(--mut); }
   .controls { margin: 28px 0 0 0; }
   .search { display: flex; gap: 10px; }
   .search input { flex: 1; background: var(--panel); border: 1px solid var(--line); color: var(--ink); border-radius: 12px; padding: 13px 16px; font-size: 16px; outline: none; }
-  .search input:focus { border-color: var(--yel); }
-  .search kbd { align-self: center; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; color: var(--dim); border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px; }
+  .search input:focus { outline: 2px solid var(--yel); outline-offset: 2px; }
+  .search kbd { align-self: center; font-family: var(--font-mono); font-size: 12px; color: var(--dim); border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px; }
   .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
   .chip { background: transparent; border: 1px solid var(--line); color: var(--mut); border-radius: 999px; padding: 10px 16px; font-size: 14px; font-weight: 600; cursor: pointer; }
   .chip:hover { color: var(--ink); }
-  .chip.on { background: var(--yel); border-color: var(--yel); color: #111; }
+  .chip.on { background: var(--yel); border-color: var(--yel); color: var(--ink-on-yel); }
   .filters { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
   .filters select { background: var(--panel); border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 10px 12px; font-size: 14px; }
   .count { font-size: 14px; color: var(--dim); margin: 20px 0 4px 0; }
   .row { display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
   .row:hover .tname { color: var(--yel); }
-  .num { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; color: var(--dim); width: 28px; flex: none; padding-top: 4px; }
+  .num { font-family: var(--font-mono); font-size: 13px; color: var(--dim); width: 28px; flex: none; padding-top: 4px; }
   .tname { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
-  .towner { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; color: var(--dim); margin-top: 2px; }
+  .towner { font-family: var(--font-mono); font-size: 13px; color: var(--dim); margin-top: 2px; }
   .tdesc { font-size: 15px; line-height: 1.6; color: var(--mut); margin-top: 8px; }
   .meta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; font-size: 13px; color: var(--mut); align-items: center; }
   .tag { font-size: 12px; font-weight: 700; background: var(--panel2); border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; color: var(--ink); }
-  .tag.y { background: var(--yel); border-color: var(--yel); color: #111; }
+  .tag.y { background: var(--yel); border-color: var(--yel); color: var(--ink-on-yel); }
   .bm { margin-left: auto; background: none; border: none; color: var(--dim); font-size: 22px; cursor: pointer; flex: none; padding: 10px; }
   .bm.saved { color: var(--yel); }
   .back { background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 11px 16px; font-size: 14px; font-weight: 600; cursor: pointer; margin: 28px 0 0 0; }
   .back:hover { border-color: var(--yel); }
-  h2 { font-size: 34px; letter-spacing: -0.8px; margin-top: 12px; }
+  h2 { text-wrap: balance; font-size: clamp(1.75rem, 2.5vw + 1rem, 2.125rem); letter-spacing: -0.8px; margin-top: 12px; overflow-wrap: break-word; min-width: 0; }
   .page-sub { color: var(--mut); font-size: 16px; line-height: 1.6; margin-top: 10px; }
-  .statgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+  .statgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
   .statbox { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
-  .statbox b { font-size: 22px; display: block; }
+  .statbox b { font-size: 22px; display: block; font-variant-numeric: tabular-nums; }
   .statbox span { font-size: 12px; color: var(--dim); }
   .btnrow { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
   .btn { display: inline-block; text-decoration: none; font-weight: 700; font-size: 15px; border-radius: 10px; padding: 12px 20px; }
-  .btn.y { background: var(--yel); color: #111; }
+  .btn.y { background: var(--yel); color: var(--ink-on-yel); }
   .btn.o { border: 1px solid var(--line); color: var(--ink); background: transparent; cursor: pointer; }
-  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
-  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 20px; cursor: pointer; }
+  .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+  .card { background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 16px; padding: 20px; cursor: pointer; }
   .card:hover { border-color: var(--yel); }
   .card h3 { font-size: 19px; letter-spacing: -0.3px; }
   .card p { color: var(--mut); font-size: 14px; line-height: 1.6; margin-top: 8px; }
@@ -82,7 +89,7 @@
   .day.f { background: var(--yel); border-color: var(--yel); }
   form label { display: block; font-weight: 700; font-size: 15px; margin-top: 20px; }
   form input, form textarea { width: 100%; background: var(--panel); border: 1px solid var(--line); color: var(--ink); border-radius: 12px; padding: 13px 16px; font-size: 15px; margin-top: 8px; outline: none; }
-  form input:focus, form textarea:focus { border-color: var(--yel); }
+  form input:focus, form textarea:focus { outline: 2px solid var(--yel); outline-offset: 2px; }
   form textarea { min-height: 110px; resize: vertical; }
   .hint { font-size: 13px; color: var(--dim); margin-top: 6px; }
   .note { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-top: 22px; font-size: 15px; line-height: 1.65; color: var(--mut); }
@@ -91,6 +98,10 @@
   .empty b { color: var(--ink); font-size: 19px; display: block; margin-bottom: 8px; }
   footer { border-top: 1px solid var(--line); margin-top: 60px; padding: 26px 0 40px 0; color: var(--dim); font-size: 14px; line-height: 1.7; }
   footer a { color: var(--yel); }
+  .flinks { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+  .msg-err { color: var(--err); }
+  .msg-ok { color: var(--yel); }
+  .msg-dim { color: var(--mut); }
   .banner { background: var(--panel); border: 1px solid var(--yel); border-radius: 16px; padding: 20px; margin-top: 22px; }
   .banner h3 { font-size: 21px; }
   .banner p { color: var(--mut); margin-top: 6px; line-height: 1.6; font-size: 15px; }
@@ -119,14 +130,13 @@
 <main class="wrap">
   <section id="view-list">
     <div class="hero">
-      <div class="kicker">TOOLS OPEN SOURCE PILIHAN PEKA</div>
       <h1>Repo bagus, <em>tinggal pakai.</em></h1>
       <p class="sub">Kumpulan repo dan skill yang pernah tayang di Peka, diringkas Bahasa Indonesia dan diverifikasi ke GitHub-nya. Cari nama repo, saring kategori atau bahasa, simpan yang mau dicoba nanti.</p>
       <div class="stats" id="stats"></div>
     </div>
     <div class="controls">
       <div class="search">
-        <input id="q" type="text" placeholder="Cari nama repo atau kata kunci..." autocomplete="off">
+        <input id="q" type="text" placeholder="Cari nama repo atau kata kunci…" autocomplete="off">
         <kbd>/</kbd>
       </div>
       <div class="chips" id="chips"></div>
@@ -140,7 +150,7 @@
       </div>
       <div class="count" id="count"></div>
     </div>
-    <div id="list"><div class="empty"><b>Memuat katalog...</b></div></div>
+    <div id="list"><div class="empty"><b>Memuat katalog…</b></div></div>
   </section>
   <section id="view-detail" style="display:none"></section>
   <section id="view-koleksi" style="display:none"></section>
@@ -154,7 +164,7 @@
     <b style="color:var(--ink)">Peka Tools</b> adalah katalog tools open source dari Peka.<br>
     Data: repo yang pernah tayang di SPILL Repo Peka, edisi khusus Hallmark, dan tools buatan Peka.
     Angka bintang dari GitHub saat data disusun (<span id="gen"></span>), bisa berubah, cek repo aslinya.<br>
-    <a href="https://peka.ai.id">peka.ai.id</a> · <a href="https://url.peka.ai.id">url.peka.ai.id</a> · <a href="https://github.com/dasrams31">GitHub Peka</a>
+    <span class="flinks"><a href="https://peka.ai.id">peka.ai.id</a><a href="https://url.peka.ai.id">url.peka.ai.id</a><a href="https://github.com/dasrams31">GitHub Peka</a></span>
   </div>
 </footer>
 <script>
@@ -196,7 +206,7 @@ function rowHTML(t, i) {
       '<div class="towner">' + esc(t.name) + '</div>' +
       '<div class="tdesc">' + esc(t.desc) + '</div>' +
       '<div class="meta"><span>' + star(t) + '</span>' +
-        (t.language ? '<span>● ' + esc(t.language) + '</span>' : '') +
+        (t.language ? '<span>' + esc(t.language) + '</span>' : '') +
         '<span class="tag">' + esc(t.category) + '</span>' +
         (t.edition_label ? '<span>' + esc(t.edition_label) + '</span>' : '') +
       '</div>' +
@@ -240,7 +250,7 @@ function renderDetail(name) {
   const blog = t.blog ? '<a class="btn o" href="https://blog.peka.ai.id/p/' + esc(t.blog) + '">Baca bedah lengkap di blog Peka</a>' : '';
   el.innerHTML = '<button class="back" onclick="location.hash=\'#/\'">← Kembali ke daftar</button>' +
     '<h2>' + esc(t.repo) + '</h2>' +
-    '<div class="towner">' + esc(t.name) + (t.edition_label ? ' · ' + esc(t.edition_label) : '') + (t.date ? ' · ' + esc(fmtDate(t.date)) : '') + '</div>' +
+    '<div class="towner">' + esc(t.name) + (t.edition_label ? ', ' + esc(t.edition_label) : '') + (t.date ? ', ' + esc(fmtDate(t.date)) : '') + '</div>' +
     '<p class="page-sub">' + esc(t.desc) + '</p>' +
     '<p class="page-sub"><b style="color:var(--ink)">Cocok buat:</b> ' + esc(t.cocok) + '</p>' +
     '<div class="statgrid">' +
@@ -308,7 +318,7 @@ function renderArsip() {
   el.innerHTML = '<h2>Arsip edisi</h2>' +
     '<p class="page-sub">Setiap edisi yang pernah diterbitkan, dari yang terbaru sampai yang paling lama. Pilih tanggalnya buat lihat daftar repo di edisi itu.</p>' +
     '<div class="heat">' + heat + '</div>' +
-    '<div class="hint">Oktober 2026 · kotak kuning = ada edisi terbit.</div>' +
+    '<div class="hint">Oktober 2026, kotak kuning menandai ada edisi terbit.</div>' +
     '<div style="margin-top:14px">' + DATA.archive.map(a => {
       const tools = DATA.tools.filter(t => t.edition_label && t.date === a.date && (a.edition ? t.edition === a.edition : !t.edition));
       const q = a.edition ? '' : '';
@@ -355,15 +365,15 @@ async function submitUsulan(ev) {
   ev.preventDefault();
   const repo = $('u-repo').value.trim(), reason = $('u-reason').value.trim(), name = $('u-name').value.trim();
   const msg = $('u-msg');
-  if (!/^https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/?$/.test(repo)) { msg.style.color = '#ff7a6e'; msg.textContent = 'Link harus format https://github.com/owner/repo.'; return false; }
-  if (reason.length < 20) { msg.style.color = '#ff7a6e'; msg.textContent = 'Alasannya minimal 20 karakter.'; return false; }
-  msg.style.color = 'var(--mut)'; msg.textContent = 'Mengirim...';
+  if (!/^https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/?$/.test(repo)) { msg.className = 'msg-err'; msg.textContent = 'Link harus format https://github.com/owner/repo.'; return false; }
+  if (reason.length < 20) { msg.className = 'msg-err'; msg.textContent = 'Alasannya minimal 20 karakter.'; return false; }
+  msg.className = 'msg-dim'; msg.textContent = 'Mengirim…';
   try {
     const r = await fetch('/api/usulan', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ repo, reason, name }) });
     const j = await r.json();
-    if (j.ok) { msg.style.color = 'var(--yel)'; msg.textContent = 'Usulan terkirim. Makasih, bakal direview manual dulu.'; $('f-usul').reset(); }
-    else { msg.style.color = '#ff7a6e'; msg.textContent = 'Gagal: ' + (j.error || 'coba lagi nanti.'); }
-  } catch (e) { msg.style.color = '#ff7a6e'; msg.textContent = 'Gagal mengirim, cek koneksi lalu coba lagi.'; }
+    if (j.ok) { msg.className = 'msg-ok'; msg.textContent = 'Usulan terkirim. Makasih, bakal direview manual dulu.'; $('f-usul').reset(); }
+    else { msg.className = 'msg-err'; msg.textContent = 'Gagal: ' + (j.error || 'coba lagi nanti.'); }
+  } catch (e) { msg.className = 'msg-err'; msg.textContent = 'Gagal mengirim, cek koneksi lalu coba lagi.'; }
   return false;
 }
 function renderTentang() {
