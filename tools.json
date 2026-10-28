@@ -3033,6 +3033,106 @@
     "Plugin"
    ],
    "origin": "KURASI"
+  },
+  {
+   "name": "nexu-io/html-anything",
+   "owner": "nexu-io",
+   "repo": "html-anything",
+   "url": "https://github.com/nexu-io/html-anything",
+   "stars": 9281,
+   "stars_display": "9rb",
+   "forks": 886,
+   "language": "HTML",
+   "license": "Apache-2.0",
+   "desc": "Editor HTML agentic yang bikin agent lokal kamu nulis HTML, lalu kamu tinggal kirim hasilnya.",
+   "cocok": "Kreator yang mau bikin majalah, deck, poster, atau prototipe dari prompt tanpa ribet setup.",
+   "category": "OpenCode",
+   "agent": "OpenCode",
+   "date": "2026-10-28",
+   "edition": 8,
+   "edition_label": "Edisi #08",
+   "blog": "spill-repo-skill-opencode-edisi-08",
+   "tags": [
+    "OpenCode",
+    "Tools",
+    "HTML"
+   ],
+   "origin": "KURASI"
+  },
+  {
+   "name": "Oldcircle/geo-sleuth",
+   "owner": "Oldcircle",
+   "repo": "geo-sleuth",
+   "url": "https://github.com/Oldcircle/geo-sleuth",
+   "stars": 4408,
+   "stars_display": "4rb",
+   "forks": 578,
+   "language": "Python",
+   "license": "MIT",
+   "desc": "Skill yang nyari tahu lokasi sebuah foto diambil, lengkap dengan bukti kerjanya.",
+   "cocok": "Jurnalis, peneliti OSINT, dan yang suka main tebak lokasi dari foto.",
+   "category": "OpenCode",
+   "agent": "OpenCode",
+   "date": "2026-10-28",
+   "edition": 8,
+   "edition_label": "Edisi #08",
+   "blog": "spill-repo-skill-opencode-edisi-08",
+   "tags": [
+    "OpenCode",
+    "Tools",
+    "Python"
+   ],
+   "origin": "KURASI"
+  },
+  {
+   "name": "runkids/skillshare",
+   "owner": "runkids",
+   "repo": "skillshare",
+   "url": "https://github.com/runkids/skillshare",
+   "stars": 2842,
+   "stars_display": "3rb",
+   "forks": 184,
+   "language": "Go",
+   "license": "MIT",
+   "desc": "Alat sinkronisasi yang nyamain skill, agent, MCP, dan plugin ke semua CLI agent dengan satu perintah.",
+   "cocok": "Tim developer yang mau semua anggota pakai skill dan agent yang sama.",
+   "category": "OpenCode",
+   "agent": "OpenCode",
+   "date": "2026-10-28",
+   "edition": 8,
+   "edition_label": "Edisi #08",
+   "blog": "spill-repo-skill-opencode-edisi-08",
+   "tags": [
+    "OpenCode",
+    "Tools",
+    "Go"
+   ],
+   "origin": "KURASI"
+  },
+  {
+   "name": "tickernelz/opencode-mem",
+   "owner": "tickernelz",
+   "repo": "opencode-mem",
+   "url": "https://github.com/tickernelz/opencode-mem",
+   "stars": 1792,
+   "stars_display": "2rb",
+   "forks": 181,
+   "language": "TypeScript",
+   "license": "MIT",
+   "desc": "Plugin OpenCode yang ngasih memori persisten ke agent pakai database vektor lokal.",
+   "cocok": "Pengguna OpenCode yang kerja proyek panjang dan mau agentnya ingat konteks kemarin.",
+   "category": "OpenCode",
+   "agent": "OpenCode",
+   "date": "2026-10-28",
+   "edition": 8,
+   "edition_label": "Edisi #08",
+   "blog": "spill-repo-skill-opencode-edisi-08",
+   "tags": [
+    "OpenCode",
+    "Tools",
+    "TypeScript"
+   ],
+   "origin": "KURASI"
   }
  ],
  "collections": [
