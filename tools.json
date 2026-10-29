@@ -3133,6 +3133,106 @@
     "TypeScript"
    ],
    "origin": "KURASI"
+  },
+  {
+   "name": "sickn33/agentic-awesome-skills",
+   "owner": "sickn33",
+   "repo": "agentic-awesome-skills",
+   "url": "https://github.com/sickn33/agentic-awesome-skills",
+   "stars": 48717,
+   "stars_display": "48,7rb",
+   "forks": 7073,
+   "language": "Python",
+   "license": "MIT",
+   "desc": "Katalog raksasa berisi lebih dari 2.877 skill siap pakai buat AI coding agent. Skillnya bisa dicari dari katalog lokal, dipilih sendiri oleh agent, dan dilihat dulu rencananya sebelum dijalankan. Ada CLI, MCP, dan plugin, jadi katalog ini bisa nyambung ke banyak agent sekaligus. Isinya mencakup Claude Code, Codex, Cursor, dan Gemini CLI, sehingga satu katalog bisa dipakai lintas alat. Buat yang sering pasang skill satu satu, ini jadi satu pintu masuk yang jauh lebih rapi.",
+   "cocok": "Pengguna AI coding agent yang mau punya banyak skill siap pakai tanpa berburu repo satu satu.",
+   "category": "Antigravity",
+   "agent": "Antigravity",
+   "date": "2026-10-29",
+   "edition": 9,
+   "edition_label": "Edisi #09",
+   "blog": "spill-repo-skill-antigravity-edisi-09",
+   "tags": [
+    "Antigravity",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "gemini-cli-extensions/conductor",
+   "owner": "gemini-cli-extensions",
+   "repo": "conductor",
+   "url": "https://github.com/gemini-cli-extensions/conductor",
+   "stars": 3775,
+   "stars_display": "3,8rb",
+   "forks": 301,
+   "language": "Python",
+   "license": "Apache-2.0",
+   "desc": "Plugin buat AI coding agent yang menerapkan Spec-Driven Development, alias kerja berbasis spesifikasi. Alurnya jelas: tentukan dulu apa yang mau dibuat, susun rencananya, baru implementasikan. Plugin ini jalan di Antigravity dan Claude Code, jadi cocok buat yang pakai salah satu dari keduanya. Dengan spesifikasi tertulis di depan, hasil coding jadi lebih terarah dan gampang direview. Cocok dipakai buat fitur yang butuh perencanaan matang, bukan sekadar tambal sulam.",
+   "cocok": "Pengguna Antigravity atau Claude Code yang mau membangun fitur lewat spesifikasi yang jelas.",
+   "category": "Antigravity",
+   "agent": "Antigravity",
+   "date": "2026-10-29",
+   "edition": 9,
+   "edition_label": "Edisi #09",
+   "blog": "spill-repo-skill-antigravity-edisi-09",
+   "tags": [
+    "Antigravity",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "gotalab/cc-sdd",
+   "owner": "gotalab",
+   "repo": "cc-sdd",
+   "url": "https://github.com/gotalab/cc-sdd",
+   "stars": 3747,
+   "stars_display": "3,7rb",
+   "forks": 284,
+   "language": "TypeScript",
+   "license": "MIT",
+   "desc": "Harness Spec-Driven Development yang minimal dan gampang disesuaikan. Cara kerjanya, spesifikasi yang sudah disetujui diubah jadi implementasi mandiri yang bisa jalan lama tanpa didampingi terus. Skill agent-nya mendukung banyak alat, termasuk Claude Code, Codex, Cursor, Copilot, Windsurf, OpenCode, Gemini CLI, dan Antigravity. Karena desainnya minimal, harness ini gampang diutak atik sesuai gaya kerja tim. Cocok buat proyek yang speknya sudah matang dan tinggal dieksekusi sampai selesai.",
+   "cocok": "Tim atau solo developer yang speknya sudah disetujui dan mau implementasi jalan mandiri sampai beres.",
+   "category": "Antigravity",
+   "agent": "Antigravity",
+   "date": "2026-10-29",
+   "edition": 9,
+   "edition_label": "Edisi #09",
+   "blog": "spill-repo-skill-antigravity-edisi-09",
+   "tags": [
+    "Antigravity",
+    "Skill",
+    "TypeScript"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "Nanako0129/sepia",
+   "owner": "Nanako0129",
+   "repo": "sepia",
+   "url": "https://github.com/Nanako0129/sepia",
+   "stars": 3547,
+   "stars_display": "3,5rb",
+   "forks": 218,
+   "language": "Python",
+   "license": "MIT",
+   "desc": "Skill menulis yang memperbaiki tulisan supaya tidak terasa seperti hasil AI. Skill ini memperbaiki arsitektur narasi buat fiksi dan menyesuaikan aturan gaya buat tulisan profesional. Ada plugin native buat Claude Code, Codex, Grok Build, dan Antigravity, plus dukungan lebih dari 77 agent lewat Skills CLI. Dasar risetnya merujuk StoryScope, jadi pendekatannya bukan sekadar ganti kata. Buat yang nulis fiksi atau naskah profesional, skill ini bantu tulisan terasa lebih manusiawi.",
+   "cocok": "Penulis fiksi atau profesional yang pakai Antigravity dan mau tulisannya tidak terasa seperti buatan AI.",
+   "category": "Antigravity",
+   "agent": "Antigravity",
+   "date": "2026-10-29",
+   "edition": 9,
+   "edition_label": "Edisi #09",
+   "blog": "spill-repo-skill-antigravity-edisi-09",
+   "tags": [
+    "Antigravity",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
   }
  ],
  "collections": [
