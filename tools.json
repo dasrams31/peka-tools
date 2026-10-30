@@ -3258,6 +3258,18 @@
     "Python"
    ],
    "origin": "SPILL"
+  },
+  {
+   "name": "makecindy/cindy",
+   "owner": "makecindy",
+   "repo": "cindy",
+   "url": "https://github.com/makecindy/cindy",
+   "stars": 8706,
+   "stars_display": "8,7rb",
+   "forks": 1037,
+   "language": "TypeScript",
+   "license": "Apache-2.0",
+   "desc": "AI agent open source yang jalan di laptop dan HP dalam satu session yang nyambung. Komputermu jadi servernya, tanpa sewa server; bisa pakai Claude Code, Codex, atau Pi, plus Skills, plugin, dan MCP."
   }
  ],
  "collections": [
