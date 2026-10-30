@@ -3233,6 +3233,31 @@
     "Python"
    ],
    "origin": "SPILL"
+  },
+  {
+   "name": "anthropics/claude-plugins-official",
+   "owner": "anthropics",
+   "repo": "claude-plugins-official",
+   "url": "https://github.com/anthropics/claude-plugins-official",
+   "stars": 45382,
+   "stars_display": "45,4rb",
+   "forks": 4732,
+   "language": "Python",
+   "license": "Apache-2.0",
+   "desc": "Direktori resmi plugin Claude Code yang dikelola langsung oleh Anthropic. Isinya plugin berkualitas tinggi yang sudah melewati kurasi tim Anthropic, jadi lebih aman dijadikan rujukan dibanding plugin acak. Plugin di sini nyambung ke skill dan MCP, sehingga Claude Code bisa dapat kemampuan baru tanpa utak atik konfigurasi rumit. Karena dikelola resmi, daftarnya jadi patokan mana plugin yang layak dipasang. Kamu tinggal pilih pluginnya, pasang, dan langsung pakai di Claude Code.",
+   "cocok": "Cocok buat pengguna Claude Code yang mau pasang plugin dari sumber resmi dan tidak mau coba coba plugin acak.",
+   "category": "Claude",
+   "agent": "Claude",
+   "edition": 10,
+   "edition_label": "Edisi #10",
+   "date": "2026-10-30",
+   "blog": "spill-repo-skill-claude-edisi-10",
+   "tags": [
+    "Claude",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
   }
  ],
  "collections": [
