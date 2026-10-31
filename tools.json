@@ -3270,6 +3270,81 @@
    "language": "TypeScript",
    "license": "Apache-2.0",
    "desc": "AI agent open source yang jalan di laptop dan HP dalam satu session yang nyambung. Komputermu jadi servernya, tanpa sewa server; bisa pakai Claude Code, Codex, atau Pi, plus Skills, plugin, dan MCP."
+  },
+  {
+   "name": "stephenschoettler/hermes-lcm",
+   "owner": "stephenschoettler",
+   "repo": "hermes-lcm",
+   "url": "https://github.com/stephenschoettler/hermes-lcm",
+   "stars": 1305,
+   "stars_display": "1,3rb",
+   "forks": 186,
+   "language": "Python",
+   "license": "MIT",
+   "desc": "Plugin manajemen konteks buat Hermes Agent yang menjaga percakapan tetap utuh dari awal sampai akhir. Mesin konteksnya memakai struktur DAG, jadi pesan lama tidak hilang walau sesi makin panjang. Dengan konteks yang utuh, agent bisa menjawab dengan ingatan penuh atas apa yang sudah dibahas. Hasilnya kerja panjang tidak perlu diulang dari nol karena agent lupa di tengah jalan. Cocok buat sesi Hermes yang panjang dan penuh konteks penting.",
+   "cocok": "Cocok buat pengguna Hermes Agent yang sesi kerjanya panjang dan tidak mau pesan penting hilang di tengah jalan.",
+   "category": "Hermes",
+   "agent": "Hermes",
+   "edition": 11,
+   "edition_label": "Edisi #11",
+   "date": "2026-10-31",
+   "blog": "spill-repo-skill-hermes-edisi-11",
+   "tags": [
+    "Hermes",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "Romanescu11/hermes-skill-factory",
+   "owner": "Romanescu11",
+   "repo": "hermes-skill-factory",
+   "url": "https://github.com/Romanescu11/hermes-skill-factory",
+   "stars": 560,
+   "stars_display": "560",
+   "forks": 71,
+   "language": "Python",
+   "license": null,
+   "desc": "Plugin meta skill buat Hermes Agent yang mengubah workflow yang sudah kamu kerjakan jadi skill yang bisa dipakai ulang. Plugin ini memperhatikan cara kamu bekerja bersama Hermes, lalu menyimpan pola kerja itu sebagai skill baru. Workflow yang biasanya hilang begitu sesi berakhir jadi tersimpan dan bisa dipakai lagi lain kali. Dengan begitu kamu tidak perlu menjelaskan langkah yang sama berulang ulang. Hasilnya Hermes makin lama makin paham cara kerja kamu.",
+   "cocok": "Cocok buat pengguna Hermes yang workflow-nya sering terulang dan mau diubah otomatis jadi skill yang bisa dipakai ulang.",
+   "category": "Hermes",
+   "agent": "Hermes",
+   "edition": 11,
+   "edition_label": "Edisi #11",
+   "date": "2026-10-31",
+   "blog": "spill-repo-skill-hermes-edisi-11",
+   "tags": [
+    "Hermes",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "NousResearch/hermes-official-plugins",
+   "owner": "NousResearch",
+   "repo": "hermes-official-plugins",
+   "url": "https://github.com/NousResearch/hermes-official-plugins",
+   "stars": 556,
+   "stars_display": "556",
+   "forks": 98,
+   "language": "Python",
+   "license": "MIT",
+   "desc": "Kumpulan plugin resmi Hermes Agent yang dibuat dan dirawat langsung oleh Nous Research. Isinya antara lain plugin Home Assistant, Spotify, dan Claude Subscription DirectSDK, plus plugin resmi lain yang terus ditambah. Plugin resmi ini bisa dipasang lewat katalog plugin Hermes, jadi kamu tidak perlu cari sumber acak. Karena dirawat pembuat Hermes sendiri, pluginnya lebih bisa diandalkan dibanding plugin tidak resmi. Kamu tinggal pilih pluginnya dan langsung pakai di Hermes Agent.",
+   "cocok": "Cocok buat pengguna Hermes Agent yang mau pasang plugin dari sumber resmi Nous Research dan tidak mau coba coba plugin acak.",
+   "category": "Hermes",
+   "agent": "Hermes",
+   "edition": 11,
+   "edition_label": "Edisi #11",
+   "date": "2026-10-31",
+   "blog": "spill-repo-skill-hermes-edisi-11",
+   "tags": [
+    "Hermes",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
   }
  ],
  "collections": [
