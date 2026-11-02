@@ -3345,6 +3345,106 @@
     "Python"
    ],
    "origin": "SPILL"
+  },
+  {
+   "name": "anthonylee991/gemini-superpowers-antigravity",
+   "owner": "anthonylee991",
+   "repo": "gemini-superpowers-antigravity",
+   "url": "https://github.com/anthonylee991/gemini-superpowers-antigravity",
+   "stars": 846,
+   "stars_display": "846",
+   "forks": 111,
+   "language": "Python",
+   "license": "MIT",
+   "desc": "Framework workflow sistematis buat Google Antigravity yang diadaptasi dari Claude Superpowers. Framework ini mencegah agent langsung menulis kode, dan mengarahkannya lewat alur brainstorming, perencanaan, eksekusi, lalu review. Isinya ada workflow slash command seperti superpowers-brainstorm, superpowers-write-plan, superpowers-execute-plan, dan superpowers-review, plus skill TDD, debug, dan review. Ada juga rule penjaga yang mewajibkan rencana tertulis dan persetujuan sebelum implementasi. Caranya salin folder .agent dari repo ini ke proyekmu, lalu buka proyek itu di Antigravity. Hasilnya kode dibangun bertahap dengan tes, dan langkah independen bisa dikerjakan paralel.",
+   "cocok": "Pengguna Antigravity yang agent-nya sering langsung coding tanpa rencana dan mau alur kerja yang lebih tertib.",
+   "category": "Antigravity",
+   "agent": "Antigravity",
+   "edition": 13,
+   "edition_label": "Edisi #13",
+   "date": "2026-11-02",
+   "blog": "spill-repo-skill-antigravity-edisi-13",
+   "tags": [
+    "Antigravity",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "Joonghyun-Lee-Frieren/oh-my-antigravity",
+   "owner": "Joonghyun-Lee-Frieren",
+   "repo": "oh-my-antigravity",
+   "url": "https://github.com/Joonghyun-Lee-Frieren/oh-my-antigravity",
+   "stars": 215,
+   "stars_display": "215",
+   "forks": 30,
+   "language": "JavaScript",
+   "license": "NOASSERTION",
+   "desc": "Plugin native buat Antigravity CLI yang membawa workflow tim multi-agent berbasis context engineering. Plugin ini memisahkan giliran desain dan giliran eksekusi, memakai agent dokumentasi read-only, dan mengunci scope file serta cek verifikasi sebelum kode diubah. Pasangnya dengan perintah agy plugin install memakai URL repo ini, lalu mulai dengan perintah /oma-team-plan di dalam CLI. Setelah desain lolos cek independen, eksekusi dijalankan dengan /oma-team-exec dan diverifikasi dengan /oma-team-verify. Hasilnya perubahan besar dikerjakan dengan bukti verifikasi, bukan sekadar klaim selesai.",
+   "cocok": "Pengguna Antigravity CLI yang mengerjakan perubahan besar dan mau desain dicek dulu sebelum kode dieksekusi.",
+   "category": "Antigravity",
+   "agent": "Antigravity",
+   "edition": 13,
+   "edition_label": "Edisi #13",
+   "date": "2026-11-02",
+   "blog": "spill-repo-skill-antigravity-edisi-13",
+   "tags": [
+    "Antigravity",
+    "Skill",
+    "JavaScript"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "harikrishna8121999/antigravity-workflows",
+   "owner": "harikrishna8121999",
+   "repo": "antigravity-workflows",
+   "url": "https://github.com/harikrishna8121999/antigravity-workflows",
+   "stars": 191,
+   "stars_display": "191",
+   "forks": 39,
+   "language": "JavaScript",
+   "license": "NOASSERTION",
+   "desc": "Kumpulan workflow komunitas buat Antigravity AI yang bekerja seperti Claude Skills, yaitu prompt dan otomasi siap pakai buat AI coding assistant. Workflow-nya tidak mengasumsikan stack tertentu: workflow mendeteksi framework dan pola proyekmu, lalu bertanya sebelum bekerja. Tiap workflow hanya mengerjakan satu tugas, misalnya git-commit, new-component, atau new-api, dan bisa digabung buat tugas yang lebih kompleks. Pasangnya tanpa instalasi berat: jalankan npx antigravity-workflows install git-commit, lalu ketik /git-commit di chat Antigravity. Hasilnya tugas rutin dikerjakan dengan cara yang konsisten, tanpa harus menulis prompt panjang dari nol.",
+   "cocok": "Pengguna Antigravity yang mau workflow siap pakai yang menyesuaikan stack proyeknya sendiri.",
+   "category": "Antigravity",
+   "agent": "Antigravity",
+   "edition": 13,
+   "edition_label": "Edisi #13",
+   "date": "2026-11-02",
+   "blog": "spill-repo-skill-antigravity-edisi-13",
+   "tags": [
+    "Antigravity",
+    "Skill",
+    "JavaScript"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "anhtester/antigravity-testing-kit",
+   "owner": "anhtester",
+   "repo": "antigravity-testing-kit",
+   "url": "https://github.com/anhtester/antigravity-testing-kit",
+   "stars": 149,
+   "stars_display": "149",
+   "forks": 57,
+   "language": "JavaScript",
+   "license": "MIT",
+   "desc": "Kit skill, workflow, dan rule buat Antigravity yang dirancang khusus untuk komunitas tester, mencakup manual testing dan automation testing. Kit ini berisi 10 skill dan 16 workflow slash command, dari analisis requirement, desain test case berbasis risiko, sampai penulisan script automation dan laporan hasil. Rule-nya mewajibkan pola Page Object Model, strategi locator yang jelas, dan perbaikan otomatis saat locator gagal. Kit ini mendukung framework web, mobile, dan API seperti Playwright, Selenium, dan Appium, dan AI-nya berkomunikasi dalam bahasa Vietnam. Kit ini dipakai lewat folder .agent yang disediakan repo, yang berisi rule, skill, dan workflow yang dibaca Antigravity saat bekerja.",
+   "cocok": "Tester manual maupun automation yang mau alur testing end to end dibantu AI di Antigravity.",
+   "category": "Antigravity",
+   "agent": "Antigravity",
+   "edition": 13,
+   "edition_label": "Edisi #13",
+   "date": "2026-11-02",
+   "blog": "spill-repo-skill-antigravity-edisi-13",
+   "tags": [
+    "Antigravity",
+    "Skill",
+    "JavaScript"
+   ],
+   "origin": "SPILL"
   }
  ],
  "collections": [
