@@ -3445,6 +3445,81 @@
     "JavaScript"
    ],
    "origin": "SPILL"
+  },
+  {
+   "name": "alchaincyf/huashu-design",
+   "owner": "alchaincyf",
+   "repo": "huashu-design",
+   "url": "https://github.com/alchaincyf/huashu-design",
+   "stars": 28564,
+   "stars_display": "28,6rb",
+   "forks": 3095,
+   "language": "HTML",
+   "license": "MIT",
+   "desc": "Skill desain yang mengubah satu kalimat jadi hasil desain yang bisa dipakai. Hasilnya bisa berupa prototipe web atau app, PPTX yang masih bisa diedit, animasi, sampai infografis. Tiap permintaan dibuat 6 arah desain, lalu kamu pilih 3 arah yang paling cocok. Ada 84 gaya desain lengkap dengan contohnya, dan skill ini belajar dari selera tampilamu lewat catatan desain. Hasilnya desain yang keluar terasa dirancang, bukan sekadar tempelan AI.",
+   "cocok": "Pengguna Claude Code yang mau bikin desain web, app, atau presentasi tanpa mulai dari kanvas kosong.",
+   "category": "Claude",
+   "agent": "Claude",
+   "edition": 14,
+   "edition_label": "Edisi #14",
+   "date": "2026-11-03",
+   "blog": "spill-repo-skill-claude-edisi-14",
+   "tags": [
+    "Claude",
+    "Skill",
+    "HTML"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "AgriciDaniel/claude-seo",
+   "owner": "AgriciDaniel",
+   "repo": "claude-seo",
+   "url": "https://github.com/AgriciDaniel/claude-seo",
+   "stars": 26194,
+   "stars_display": "26,2rb",
+   "forks": 3417,
+   "language": "Python",
+   "license": "MIT",
+   "desc": "Skill SEO universal buat Claude Code yang isinya 26 sub-skill dan 19 sub-agent. Cakupannya luas, dari SEO teknis, E-E-A-T, schema, sampai GEO dan AEO buat mesin pencari AI. Ada juga bahasan kesiapan agent, backlink, SEO lokal, e-commerce, SEO internasional, dan API Google. Hasil kerjanya bisa dilaporkan dalam PDF atau Excel, dan ada 9 ekstensi opsional buat data SEO live. Hasilnya audit dan perbaikan SEO dikerjakan agent dengan langkah yang runtut.",
+   "cocok": "Pemilik web, SEO specialist, dan developer yang mau audit SEO dibantu agent sampai ke laporan.",
+   "category": "Claude",
+   "agent": "Claude",
+   "edition": 14,
+   "edition_label": "Edisi #14",
+   "date": "2026-11-03",
+   "blog": "spill-repo-skill-claude-edisi-14",
+   "tags": [
+    "Claude",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "Vincentwei1021/video-shotcraft",
+   "owner": "Vincentwei1021",
+   "repo": "video-shotcraft",
+   "url": "https://github.com/Vincentwei1021/video-shotcraft",
+   "stars": 16426,
+   "stars_display": "16,4rb",
+   "forks": 1553,
+   "language": "TypeScript",
+   "license": "Apache-2.0",
+   "desc": "Skill video AI buat Claude Code dan Codex yang fokus ke promo produk sinematik yang masih bisa diedit. Isinya 124 kartu resep shot dan 150 pratinjau gerakan, jadi kamu bisa pilih gaya gambar sebelum render. Ada sinkronisasi beat musik, desain suara, dan Motion Workbench buat mengatur gerakan. Hasil akhirnya memakai Remotion dan bisa diekspor ke JianYing atau CapCut versi Tiongkok. Hasilnya promo produk yang gerakannya rapi dan gampang diubah, bukan video sekali jadi.",
+   "cocok": "Kreator dan tim produk yang mau bikin promo video sinematik dari Claude Code dan masih bisa mengeditnya.",
+   "category": "Claude",
+   "agent": "Claude",
+   "edition": 14,
+   "edition_label": "Edisi #14",
+   "date": "2026-11-03",
+   "blog": "spill-repo-skill-claude-edisi-14",
+   "tags": [
+    "Claude",
+    "Skill",
+    "TypeScript"
+   ],
+   "origin": "SPILL"
   }
  ],
  "collections": [
