@@ -1969,27 +1969,6 @@
    "origin": "KURASI"
   },
   {
-   "name": "sst/opencode",
-   "owner": "sst",
-   "repo": "opencode",
-   "url": "https://github.com/anomalyco/opencode",
-   "stars": 221829,
-   "stars_display": "221,8rb",
-   "forks": 29669,
-   "language": "TypeScript",
-   "license": "MIT",
-   "desc": "Coding agent open source yang hidup di terminal. Ia bantu baca codebase, jalanin perintah, dan nulis kode langsung dari command line.",
-   "cocok": "Cocok buat developer yang mau ditemani AI coding tanpa keluar dari terminal.",
-   "category": "OpenCode",
-   "agent": "OpenCode",
-   "date": "2026-10-26",
-   "tags": [
-    "OpenCode",
-    "TypeScript"
-   ],
-   "origin": "KURASI"
-  },
-  {
    "name": "different-ai/openwork",
    "owner": "different-ai",
    "repo": "openwork",
