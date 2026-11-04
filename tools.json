@@ -3520,6 +3520,56 @@
     "TypeScript"
    ],
    "origin": "SPILL"
+  },
+  {
+   "name": "prompt-security/clawsec",
+   "owner": "prompt-security",
+   "repo": "clawsec",
+   "url": "https://github.com/prompt-security/clawsec",
+   "stars": 1130,
+   "stars_display": "1RB",
+   "forks": 112,
+   "language": "JavaScript",
+   "license": "AGPL-3.0",
+   "desc": "Suite skill keamanan lengkap buat agent seperti OpenClaw, Hermes, PicoClaw, dan NanoClaw. Isinya melindungi file seperti SOUL.md lewat deteksi drift, rekomendasi keamanan live, audit otomatis, dan verifikasi integritas skill. Suite-nya dipasang lewat npx skills add dan membawa set trust advisory yang ditandatangani, heartbeat workflow, dan guarded installer. Hasilnya instalasi skill yang berisiko ketahuan sebelum sempat merusak konfigurasi agent kamu.",
+   "cocok": "Cocok buat operator agent Hermes yang mau skill dan konfigurasinya diawasi keamanannya secara otomatis.",
+   "category": "Hermes",
+   "agent": "Hermes",
+   "edition": 15,
+   "edition_label": "Edisi #15",
+   "date": "2026-11-04",
+   "blog": "spill-repo-skill-hermes-edisi-15",
+   "tags": [
+    "Hermes",
+    "Skill",
+    "JavaScript"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "OnlyTerp/hermes-optimization-guide",
+   "owner": "OnlyTerp",
+   "repo": "hermes-optimization-guide",
+   "url": "https://github.com/OnlyTerp/hermes-optimization-guide",
+   "stars": 713,
+   "stars_display": "713",
+   "forks": 58,
+   "language": "Python",
+   "license": "MIT",
+   "desc": "Panduan optimasi Hermes Agent yang membahas setup, migrasi, LightRAG, Telegram, sampai cara bikin skill. Angkanya diukur dari install beneran, jadi panduannya bicara soal biaya dan hal yang bisa rusak secara konkret. Isinya runtut dari cara kerja Hermes, install, model, sampai budget token dan cara update tanpa merusak. Hasilnya install default kamu bisa jadi install yang rapi, terukur, dan gampang dirawat tanpa trial error buta.",
+   "cocok": "Cocok buat pengguna Hermes Agent yang mau instalasinya rapi, terukur, dan gampang dirawat.",
+   "category": "Hermes",
+   "agent": "Hermes",
+   "edition": 15,
+   "edition_label": "Edisi #15",
+   "date": "2026-11-04",
+   "blog": "spill-repo-skill-hermes-edisi-15",
+   "tags": [
+    "Hermes",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
   }
  ],
  "collections": [
