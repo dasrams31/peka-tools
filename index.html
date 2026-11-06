@@ -522,7 +522,7 @@ function send(text){
   fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:messages.slice(-16)})})
     .then(function(r){return r.json().catch(function(){return{};}).then(function(d){return{ok:r.ok,d:d};});})
     .then(function(x){if(!x.ok||!x.d.reply)throw new Error("failed");messages.push({role:"assistant",content:x.d.reply});})
-    .catch(function(){messages.push({role:"assistant",content:"Muse lagi sibuk, coba lagi sebentar lagi ya."});})
+    .catch(function(){messages.push({role:"assistant",content:"Chatbot lagi sibuk, coba lagi sebentar lagi ya."});})
     .then(function(){waiting=false;save();render();input.focus();});
 }
 fab.onclick=open;closeBtn.onclick=close;
