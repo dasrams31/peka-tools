@@ -4297,6 +4297,56 @@
         "Shell"
       ],
       "origin": "SPILL"
+    },
+    {
+      "name": "opencode-ai/opencode",
+      "owner": "opencode-ai",
+      "repo": "opencode",
+      "url": "https://github.com/opencode-ai/opencode",
+      "stars": 13898,
+      "stars_display": "14RB",
+      "forks": 2475,
+      "language": "Go",
+      "license": "MIT",
+      "desc": "OpenCode itu agent coding AI yang jalan langsung di terminal, jadi kamu bisa nulis kode bareng AI tanpa buka editor. Kamu tinggal ketik perintah, dia yang baca kode, ngedit file, dan jalanin perintah buat kamu. Agent ini open source dan bisa pakai banyak model AI, dari Claude sampai model yang jalan lokal di komputermu. Semua kerjaannya kelihatan di terminal, jadi kamu tetap pegang kendali penuh atas apa yang diubah. Ringan, cepat, dan gratis, cocok buat kerja harian di proyek apa aja.",
+      "cocok": "Kamu yang kerja dari terminal dan pengin agent coding open source yang bisa pakai banyak model.",
+      "category": "OpenCode",
+      "agent": "OpenCode",
+      "edition": 24,
+      "edition_label": "Edisi #24",
+      "date": "2026-11-13",
+      "blog": "spill-repo-skill-opencode-edisi-24",
+      "tags": [
+        "OpenCode",
+        "Skill",
+        "Go"
+      ],
+      "origin": "SPILL"
+    },
+    {
+      "name": "mattpocock/skills",
+      "owner": "mattpocock",
+      "repo": "skills",
+      "url": "https://github.com/mattpocock/skills",
+      "stars": 323506,
+      "stars_display": "324RB",
+      "forks": 27148,
+      "language": "Shell",
+      "license": "MIT",
+      "desc": "Kumpulan skill langsung dari folder .agents milik Matt Pocock, dibuat buat engineer beneran, bukan sekadar contoh. Isinya skill-skill praktis yang udah kepakai di kerjaan nyata, tinggal pasang ke agent kamu dan langsung bisa dipakai. Koleksinya luas, dari cara kerja sampai pola yang udah terbukti di lapangan, dan semuanya ditulis dengan gaya yang gampang diikuti. Dengan ratusan ribu star, ini salah satu koleksi skill paling disukai di GitHub. Cocok buat yang pengin agent-nya langsung pinter tanpa harus nulis skill dari nol.",
+      "cocok": "Kamu yang pengin agent kamu langsung punya skill kerja nyata tanpa bikin dari nol.",
+      "category": "OpenCode",
+      "agent": "OpenCode",
+      "edition": 24,
+      "edition_label": "Edisi #24",
+      "date": "2026-11-13",
+      "blog": "spill-repo-skill-opencode-edisi-24",
+      "tags": [
+        "OpenCode",
+        "Skill",
+        "Shell"
+      ],
+      "origin": "SPILL"
     }
   ],
   "collections": [
