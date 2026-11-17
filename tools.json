@@ -4722,6 +4722,106 @@
     "Python"
    ],
    "origin": "SPILL"
+  },
+  {
+   "name": "career-ops-hq/career-ops",
+   "owner": "career-ops-hq",
+   "repo": "career-ops",
+   "url": "https://github.com/career-ops-hq/career-ops",
+   "stars": 83233,
+   "stars_display": "83RB",
+   "forks": 15286,
+   "language": "JavaScript",
+   "license": "MIT",
+   "desc": "Career Ops itu agen AI open source buat cari kerja, jalan langsung di OpenCode dan CLI AI lain. Dia nyapu lowongan dari berbagai job board, lalu ngasih skor 1 sampai 5 buat tiap lowongan berdasarkan CV kamu, jadi kamu langsung tahu mana yang layak dilamar. Habis itu dia bantu bikin CV dan surat lamaran yang ramah ATS, plus latihan wawancara dan pelacak lamaran. Semua prosesnya jalan lokal di mesin kamu, dan kamu yang tetap pencet tombol kirim.",
+   "cocok": "Kamu yang lagi cari kerja dan mau agent bantu dari riset lowongan sampai siap wawancara.",
+   "category": "Opencode",
+   "agent": "Opencode",
+   "edition": 28,
+   "edition_label": "Edisi #28",
+   "date": "2026-11-17",
+   "blog": "spill-repo-skill-opencode-edisi-28",
+   "tags": [
+    "Opencode",
+    "Skill",
+    "JavaScript"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "cheaper-inference/OmniRoute",
+   "owner": "cheaper-inference",
+   "repo": "OmniRoute",
+   "url": "https://github.com/cheaper-inference/OmniRoute",
+   "stars": 88273,
+   "stars_display": "88RB",
+   "forks": 13563,
+   "language": "TypeScript",
+   "license": "MIT",
+   "desc": "OmniRoute itu gateway AI gratis berlisensi MIT yang nyatuin 375 provider dan 1.400 lebih model lewat satu endpoint. Kamu bisa pakai Claude, GPT, Gemini, Kimi, DeepSeek, dan banyak lagi dari satu tempat, termasuk 150 lebih provider gratis. Kalau satu provider kehabisan kuota, dia otomatis pindah ke provider lain, jadi ngoding kamu nggak berhenti di tengah jalan. Ada juga kompresi yang bisa motong pemakaian token 15 sampai 95 persen, plus dukungan MCP dan A2A.",
+   "cocok": "Kamu pengguna OpenCode yang mau gonta-ganti model AI tanpa ribet ganti pengaturan.",
+   "category": "Opencode",
+   "agent": "Opencode",
+   "edition": 28,
+   "edition_label": "Edisi #28",
+   "date": "2026-11-17",
+   "blog": "spill-repo-skill-opencode-edisi-28",
+   "tags": [
+    "Opencode",
+    "Skill",
+    "TypeScript"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "anbeime/skill",
+   "owner": "anbeime",
+   "repo": "skill",
+   "url": "https://github.com/anbeime/skill",
+   "stars": 9652,
+   "stars_display": "10RB",
+   "forks": 851,
+   "language": "Python",
+   "license": "Tanpa lisensi",
+   "desc": "Skill ini toko skill AI agent yang isinya paling lengkap dan paling rajin diupdate. Ada paket skill pilihan buat olah dokumen, bikin konten, ngoding, machine learning, sampai otomatisasi workflow, semuanya udah dibungkus rapi dan tinggal pasang. Dia juga otomatis ngumpulin ribuan proyek skill dari GitHub, lalu dirapihin berdasarkan kategori, tanggal update, dan jumlah star. Jadi kamu nggak perlu berburu satu-satu, tinggal pilih yang sesuai kebutuhan.",
+   "cocok": "Kamu yang mau nambah skill ke agent tanpa buang waktu berburu satu-satu.",
+   "category": "Opencode",
+   "agent": "Opencode",
+   "edition": 28,
+   "edition_label": "Edisi #28",
+   "date": "2026-11-17",
+   "blog": "spill-repo-skill-opencode-edisi-28",
+   "tags": [
+    "Opencode",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "darrenhinde/OpenAgentsControl",
+   "owner": "darrenhinde",
+   "repo": "OpenAgentsControl",
+   "url": "https://github.com/darrenhinde/OpenAgentsControl",
+   "stars": 4978,
+   "stars_display": "5RB",
+   "forks": 402,
+   "language": "TypeScript",
+   "license": "MIT",
+   "desc": "OpenAgentsControl itu framework agent buat workflow ngoding yang mengutamakan rencana dulu sebelum eksekusi. Setiap langkah jalan lewat persetujuan kamu, jadi agent nggak asal ubah kode tanpa kamu tahu. Dia dukung TypeScript, Python, Go, dan Rust, plus ada pengujian otomatis, code review, dan validasi bawaan. Framework ini memang dibangun buat OpenCode, jadi nyambung langsung sama workflow kamu di sana.",
+   "cocok": "Kamu yang mau agent ngoding tetap terkontrol dan tiap perubahan bisa dilacak.",
+   "category": "Opencode",
+   "agent": "Opencode",
+   "edition": 28,
+   "edition_label": "Edisi #28",
+   "date": "2026-11-17",
+   "blog": "spill-repo-skill-opencode-edisi-28",
+   "tags": [
+    "Opencode",
+    "Skill",
+    "TypeScript"
+   ],
+   "origin": "SPILL"
   }
  ],
  "collections": [
