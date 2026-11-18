@@ -4822,6 +4822,31 @@
     "TypeScript"
    ],
    "origin": "SPILL"
+  },
+  {
+   "name": "n2ns/antigravity-panel",
+   "owner": "n2ns",
+   "repo": "antigravity-panel",
+   "url": "https://github.com/n2ns/antigravity-panel",
+   "stars": 863,
+   "stars_display": "863",
+   "forks": 46,
+   "language": "TypeScript",
+   "license": "Apache-2.0",
+   "desc": "Antigravity Panel itu monitor kuota dan pengelola cache buat IDE Google Antigravity. Dia nunjukin kuota Gemini, Claude, dan GPT plus batas mingguan, tren pemakaian, dan prediksi kapan kuota habis. Ada juga monitor jendela konteks, pembersih cache, mode auto-accept, dan generator pesan commit AI. Hasilnya kamu selalu tahu sisa kuota sebelum kehabisan di tengah kerja.",
+   "cocok": "Kamu pengguna Antigravity yang mau pantau kuota dan konteks biar nggak kehabisan mendadak.",
+   "category": "Antigravity",
+   "agent": "Antigravity",
+   "edition": 29,
+   "edition_label": "Edisi #29",
+   "date": "2026-11-18",
+   "blog": "spill-repo-skill-antigravity-edisi-29",
+   "tags": [
+    "Antigravity",
+    "Skill",
+    "TypeScript"
+   ],
+   "origin": "SPILL"
   }
  ],
  "collections": [
