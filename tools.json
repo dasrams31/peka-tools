@@ -4996,6 +4996,81 @@
     "Go"
    ],
    "origin": "BLUEPRINT"
+  },
+  {
+   "name": "MemoriLabs/Memori",
+   "owner": "MemoriLabs",
+   "repo": "Memori",
+   "url": "https://github.com/MemoriLabs/Memori",
+   "stars": 17600,
+   "stars_display": "18RB",
+   "forks": 4008,
+   "language": "Python",
+   "license": "NOASSERTION",
+   "desc": "Memori itu infrastruktur memori asli buat agent, yang ngubah tiap eksekusi dan percakapan agent jadi state terstruktur yang tersimpan permanen. Dia agnostik sama model AI apa pun, jadi nggak ngunci kamu ke satu provider. Memori ini dirancang buat sistem produksi dan jalan di cloud, VPC, sampai on-premise. Hasilnya agent kamu nggak gampang lupa dan tetap konsisten.",
+   "cocok": "Kamu yang bangun agent buat produksi dan butuh memorinya serius, bukan sekadar catatan.",
+   "category": "Hermes",
+   "agent": "Hermes",
+   "edition": 31,
+   "edition_label": "Edisi #31",
+   "date": "2026-11-20",
+   "blog": "spill-repo-skill-hermes-edisi-31",
+   "tags": [
+    "Hermes",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "MemTensor/memmy-agent",
+   "owner": "MemTensor",
+   "repo": "memmy-agent",
+   "url": "https://github.com/MemTensor/memmy-agent",
+   "stars": 2227,
+   "stars_display": "2RB",
+   "forks": 217,
+   "language": "TypeScript",
+   "license": "MIT",
+   "desc": "Memmy itu agent pribadi plus hub memori lokal buat semua AI agent kamu. Semua agent kamu berbagi satu memori yang sama dan sepenuhnya kamu yang kontrol, jadi tiap agent ingat kamu yang sama. Konteksnya persisten, jadi agent nggak reset ingatan tiap ganti sesi atau ganti tool. Memmy udah dukung Claude Code, Codex, OpenClaw, dan Hermes Agent. Hasilnya kamu nggak perlu cerita ulang siapa kamu dan proyekmu lagi ke tiap agent.",
+   "cocok": "Kamu yang pakai banyak agent sekaligus dan mau semuanya ingat kamu yang sama.",
+   "category": "Hermes",
+   "agent": "Hermes",
+   "edition": 31,
+   "edition_label": "Edisi #31",
+   "date": "2026-11-20",
+   "blog": "spill-repo-skill-hermes-edisi-31",
+   "tags": [
+    "Hermes",
+    "Skill",
+    "TypeScript"
+   ],
+   "origin": "SPILL"
+  },
+  {
+   "name": "joeynyc/hermes-hudui",
+   "owner": "joeynyc",
+   "repo": "hermes-hudui",
+   "url": "https://github.com/joeynyc/hermes-hudui",
+   "stars": 1863,
+   "stars_display": "2RB",
+   "forks": 233,
+   "language": "Python",
+   "license": "MIT",
+   "desc": "Hermes Hudui itu dashboard web buat ngawasin kesadaran Hermes, agent AI dengan memori persisten. Kamu bisa lihat apa yang lagi dipikirin dan diinget agent kamu, langsung dari browser. Tampilannya bikin kerja agent yang biasanya cuma teks di terminal jadi kelihatan dan gampang dipantau. Kamu tinggal jalanin, lalu buka dashboardnya buat mantau Hermes kerja. Hasilnya kamu lebih gampang ngerti kenapa agent kamu ngambil keputusan tertentu.",
+   "cocok": "Kamu yang pakai Hermes dan mau lihat isi kepala agent kamu dari dashboard, bukan cuma terminal.",
+   "category": "Hermes",
+   "agent": "Hermes",
+   "edition": 31,
+   "edition_label": "Edisi #31",
+   "date": "2026-11-20",
+   "blog": "spill-repo-skill-hermes-edisi-31",
+   "tags": [
+    "Hermes",
+    "Skill",
+    "Python"
+   ],
+   "origin": "SPILL"
   }
  ],
  "collections": [
