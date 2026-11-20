@@ -4972,6 +4972,30 @@
     "Python"
    ],
    "origin": "SPILL"
+  },
+  {
+   "name": "ollama/ollama",
+   "owner": "ollama",
+   "repo": "ollama",
+   "url": "https://github.com/ollama/ollama",
+   "stars": 187732,
+   "stars_display": "187,7rb",
+   "forks": 19182,
+   "language": "Go",
+   "license": "MIT",
+   "desc": "Jalanin model AI open source di laptop sendiri, tanpa kirim data ke server orang. Download gratis buat macOS, Windows, dan Linux, terus chat sama modelnya langsung dari terminal.",
+   "cocok": "Cocok buat yang mau coba model AI lokal di laptop sendiri, atau sambungin model lokal ke coding agent kayak Claude Code dan Codex.",
+   "category": "Ollama",
+   "agent": "Ollama",
+   "edition": 3,
+   "edition_label": "BLUEPRINT #03",
+   "date": "2026-11-20",
+   "tags": [
+    "Ollama",
+    "Tools",
+    "Go"
+   ],
+   "origin": "BLUEPRINT"
   }
  ],
  "collections": [
